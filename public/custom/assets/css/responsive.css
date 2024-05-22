@@ -1,0 +1,441 @@
+@media screen and (max-width: 767px) {
+    a:hover{
+        text-decoration: none !important;
+    }
+    button.env-btn i {
+        position: absolute;
+        top: 109px;
+        right: 38px;
+    }
+
+    footer .container.pt-4 {
+        background: #bfce6a;
+    }
+
+    div.scrolled .menuWrap {
+        top: 336px;
+    }
+
+    .green-box p {
+        color: #000;
+        font-family: "Poppins";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 22px;
+        padding: 0px 16px 0px 0px;
+    }
+
+    .green-box h6 {
+        font-size: 27px;
+    }
+
+    a.logo img {
+        width: 34%;
+        margin-top: 10px;
+    }
+
+    .menu-Bar span {
+        background: #bfce6a;
+    }
+
+    .menuWrap.open {
+        background: #bfce6a;
+    }
+
+    .sec1 {
+        background-position: center;
+    }
+
+    .banner-sec-box {
+        height: 80vh;
+    }
+
+    .green-box-cover {
+        margin: 0px 0px 0px 10px;
+    }
+
+    .green-box {
+        padding: 16px 3px 32px 17px;
+        top: 21px;
+        left: 10px;
+    }
+
+    .card-pkg-top {
+        margin-top: 3rem;
+    }
+
+    .sec3 {
+        margin-right: 0px;
+    }
+
+    .pl60 {
+        padding-left: 0px;
+    }
+
+    .card-toper {
+        padding: 2px 7px;
+    }
+
+    .card3-heading h5 {
+        color: #000;
+        font-family: "Poppins";
+        font-size: 27px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 34px;
+    }
+
+    .card3-heading h6 {
+        color: #81A166;
+        font-family: "Poppins";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 33px;
+        margin-top: 10px;
+    }
+
+    .card3-heading:before {
+        display: none;
+    }
+
+    .e-card:before {
+        display: none;
+    }
+
+    .f-card:before {
+        display: none;
+    }
+
+    .card3-heading p {
+        color: #000;
+        font-family: "Poppins";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 23px;
+        margin-top: 19px;
+    }
+
+    .card3-heading ul {
+        list-style: revert;
+        margin: 12px 21px;
+    }
+
+    .card3-heading ul li {
+        font-size: 15px;
+        line-height: 25px;
+    }
+
+    .card.rad20.pad20.wow.slideInRight {
+        margin: 32px;
+    }
+
+    .sec3-para p {
+        margin: 0px 0px 30px 0px;
+
+        padding-bottom: 0rem;
+    }
+
+    .footer-logos img {
+        width: 23%;
+    }
+
+    .newsletr h6 {
+        color: #000;
+        font-family: "Poppins";
+        font-size: 27px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 34px;
+    }
+
+    .card-pkg.wow.bounceIn {
+        margin-bottom: 13px;
+    }
+
+    .newsletr input[type="email"] {
+        font-family: "Poppins";
+        width: 100%;
+        height: 49px;
+        padding: 4px 55px 1px 13px;
+        margin-top: 1.5rem;
+        border: 3px solid #fff;
+        background: transparent;
+        border-radius: 15px;
+        color: #fff;
+        font-size: 15px;
+        position: relative;
+    }
+
+    button[type="submit"] {
+
+        top: 73%;
+        right: 17px;
+        background: #bfce6a;
+        color: white;
+        border: 0;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    ul li .dropdown {
+        background: #939685;
+        visibility: hidden;
+        opacity: 0;
+        width: 202px;
+        position: absolute;
+        transition: 0.5s 1s ease;
+        display: none;
+        top: 28px;
+        right: -200px;
+        padding: 12px 20px;
+        text-align: start;
+        border-radius: 10px;
+        min-height: 60px;
+        z-index: 9999;
+    }
+
+    header .main-header ul.menu>li a {
+        color: #fff;
+        padding: 0px;
+        text-align: left;
+    }
+
+    .menuWrap.open {
+        background: #bfce6a;
+        align-items: self-start;
+    }
+
+    ul.menu {
+        padding: 10px;
+    }
+
+    .chev::after {
+        content: "\f0d7";
+        display: block;
+        font-family: 'FontAwesome';
+        margin-left: 10px;
+        font-weight: 400;
+        position: absolute;
+        top: 0px;
+        right: 20px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+
+    .dash-items ul li {
+        padding: 9px 7px;
+        font-size: 5px;
+    }
+    .dash-items ul li a {
+        font-size: 13px;
+    }
+    footer {
+        background-color: #7393B3;
+        padding: 0px 0px 58px 0px;
+        /* background-image: url(../images/footer-grass.png); */
+        background-repeat: no-repeat;
+        background-position: bottom center;
+        background-size: contain;
+        height: 548px;
+    }
+    .e-card:before {
+        display: none;
+    }
+    .sec1 {
+        background-position: center;
+    }
+
+    .p-4 {
+        padding: 0rem 0rem !important;
+    }
+
+    .sec3 {
+        margin-right: 0px;
+    }
+
+    .card3-heading h5 {
+        color: #000;
+        font-family: "Poppins";
+        font-size: 27px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 34px;
+    }
+
+    .card3-heading h6 {
+        color: #81A166;
+        font-family: "Poppins";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 33px;
+        margin-top: 10px;
+    }
+
+    .card3-heading:before {
+        top: 184px;
+        width: 73%;
+    }
+
+    .card-toper {
+        padding: 2px 7px;
+    }
+
+    .pl60 {
+        padding-left: 0px;
+    }
+
+    .footer-logos img {
+        width: 36%;
+    }
+
+    .newsletr h5:before {
+        content: "";
+        background: #ffffff;
+        border: none;
+        position: absolute;
+        width: 747px;
+        height: 5px;
+        left: 0%;
+        top: 37%;
+    }
+
+    ul li .dropdown {
+        background: #939685;
+        visibility: hidden;
+        opacity: 0;
+        width: 280px;
+        position: absolute;
+        transition: 0.5s 1s ease;
+        display: none;
+        top: 42px;
+        right: -99px;
+        padding: 12px 20px;
+        text-align: start;
+        border-radius: 10px;
+        min-height: 60px;
+        z-index: 9999;
+    }
+
+    header .main-header ul.menu>li a {
+        color: #fff;
+        padding: 0px;
+    }
+
+    .menuWrap.open {
+        background: #bfce6a;
+    }
+
+    ul.menu {
+        padding: 10px;
+    }
+
+    .chev::after {
+        content: "\f0d7";
+        display: block;
+        font-family: 'FontAwesome';
+        margin-left: 10px;
+        font-weight: 400;
+        position: absolute;
+        top: 0px;
+        right: -27px;
+    }
+
+    .menu-Bar span {
+        background: #bfce6a;
+    }
+}
+
+@media only screen and (min-width: 719px) and (max-width: 1024px) {
+
+    .sec3 {
+        background: #BFCE6A;
+        margin-top: 12rem;
+        border-radius: 0px 30px 30px 0px;
+        margin-right: 15px;
+    }
+
+    .pad20 {
+        padding: 4px;
+    }
+
+    .cart-img-box {
+        text-align: center;
+        padding: 0px 0px;
+        border-radius: 15px 15px 15px 15px;
+    }
+
+    .cart-img-box h6 {
+        font-size: 15px;
+    }
+
+    div.scrolled .menuWrap {
+        top: 359px;
+        background: #bfce6a;
+    }
+    .menuWrap {
+        background: #bfce6a;
+    }
+    ul li .dropdown {
+        background: #939685;
+        visibility: hidden;
+        opacity: 0;
+        width: 280px;
+        position: absolute;
+        transition: 0.5s 1s ease;
+        display: none;
+        top: 42px;
+        right: -99px;
+        padding: 12px 20px;
+        text-align: start;
+        border-radius: 10px;
+        min-height: 60px;
+        z-index: 9999;
+    }
+
+    header .main-header ul.menu>li a {
+        color: #fff;
+        padding: 0px;
+    }
+
+    .menuWrap.open {
+        background: #bfce6a;
+    }
+
+    ul.menu {
+        padding: 10px;
+    }
+    .green-box p {
+        padding: 17px 12px 0px 0px;
+    }
+    .green-box h6 {
+        font-size: 32px;
+    }
+    .banner-hr {
+        border: 2px solid #fff;
+        width: 61%;
+        align-items: flex-start;
+        margin: 10px 0px;
+    }
+
+    .chev::after {
+        content: "\f0d7";
+        display: block;
+        font-family: 'FontAwesome';
+        /* margin-left: 105px; */
+        font-weight: 400;
+        position: absolute;
+        top: -1px;
+        right: -3px;
+    }
+}
+
+@media only screen and (min-width: 719px) and (max-width: 1024px) {
+    .e-card:before {
+      display:none;
+    }
+}

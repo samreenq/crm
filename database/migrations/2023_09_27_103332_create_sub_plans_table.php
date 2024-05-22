@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('sub_plans', function (Blueprint $table) {
+            $table->id('s_plan_id');
+            $table->bigInteger('plan_id')->unsigned()->index()->nullable();
+            $table->foreign('plan_id')->references('plan_id')->on('plans')->onDelete('cascade');
+            $table->string("sp_name");
+            $table->longText("sp_stripe_product_id");
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('sub_plans');
+    }
+};

@@ -1,0 +1,247 @@
+@media (min-width: 767px){
+    .dis-block {
+        display: block!important;
+    }
+}
+@media (max-width: 992px){
+    .navbar-brand-box {
+        align-items: center;
+    }
+}
+.logo {
+    line-height: 0;
+}
+.logo-lg img {
+    height: 70px;
+}
+#sidebar-menu ul li ul.sub-menu li a:hover {
+    color: #000 !important;
+}
+#sidebar-menu ul li ul.sub-menu li a{
+    color: #fff !important;
+}
+#sidebar-menu ul li a{
+    color: #fff !important;
+}
+.centerMenu{
+    display: flex;
+    align-items: center;
+    height: 73px;
+    margin: 0;
+    padding: 0;
+}
+.centerMenu li {
+    margin: 0 8px;
+    list-style-type: none;
+    font-size: 1.7vh;
+    font-weight: 500;
+}
+.centerMenu li a{
+    color: #359d5a !important;
+}
+.centerMenu li a:hover{
+    color: #1b1b1b !important;
+}
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}
+.right-bar .right-bar-toggle{
+    background: #5dcb85;
+}
+.right-bar .right-bar-toggle:hover{
+    background-color: #1b1b1b;
+}
+.rightbar-overlay{
+    z-index: 99;
+}
+.right-bar{
+    z-index: 999;
+}
+.simplebar-content-wrapper{
+    background: #5dcb85;
+}
+.navbar-brand-box{
+    background: #5dcb85 !important;
+}
+.vertical-menu .mm-active .navbar-brand-box{
+    background: #5dcb85 !important;
+}
+.right-bar .simplebar-content-wrapper{
+    background: #fff;
+}
+.navbar-brand-box{
+    display: flex;
+    align-items: center;
+}
+.recipes_content a{
+  text-decoration: none;
+}
+.recipes_content a h6{
+  font-size: 18px;
+  padding: 10px 11px;
+  color: gray;
+  line-height: 27px;
+  border: 1px solid transparent;
+  box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+  border-radius: 5px;
+  margin-bottom: 30px
+}
+.recipes_content  h6{
+  font-size: 33px;
+  line-height: 42px;
+  color: gray;
+}
+.recipes_content a h6 {
+    font-size: 18px;
+    padding: 10px 11px;
+    color: #1b1b1b;
+    font-weight: 500;
+    line-height: 24px;
+    border: 1px solid transparent;
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+.recipes_content img {
+    border-radius: 2px 20px 0px 0px;
+}
+.tc-pattern {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+ .a-button-wave {
+	 display: inline-block;
+	 cursor: pointer;
+	 margin: 25px 0 0 0;
+	 padding: 0;
+	 outline: none;
+	 text-align: center;
+	 position: relative;
+	 width: 80px;
+	 height: 80px;
+	 color: #fff;
+}
+ .a-button-wave:hover, .a-button-wave:focus {
+	 color: #fff;
+}
+ .a-button-wave:hover .a-button-wave__circle--size-m {
+	 background-color: rgba(93, 203, 133, 0.6);
+}
+ .a-button-wave:hover .a-button-wave__circle--size-l {
+	 background-color: rgba(93, 203, 133, 0.75);
+}
+ .a-button-wave:hover .a-button-wave__text {
+	 color: #5dcb85;
+}
+ .a-button-wave__icon {
+	 font-size: 28px;
+	 line-height: 1;
+	 position: absolute;
+	 top: 50%;
+	 left: 50%;
+	 transform: translate(-50%, -50%);
+	 color: #fff;
+}
+ .a-button-wave__circle {
+	 border-radius: 50%;
+	 position: absolute;
+	 top: 50%;
+	 left: 50%;
+	 transform: translate(-50%, -50%);
+	 z-index: -1;
+	 transition: background-color 0.3s ease;
+}
+ .a-button-wave__circle--size-s {
+	 width: 48px;
+	 height: 48px;
+	 background-color: #5dcb85;
+}
+ .a-button-wave__circle--size-m {
+	 width: 64px;
+	 height: 64px;
+	 background-color: rgba(93, 203, 133, 0.45);;
+	 opacity: 0;
+	 animation: animation-a-button-wave--pulse-m 2.25s 0.25s linear infinite;
+}
+ .a-button-wave__circle--size-l {
+	 width: 80px;
+	 height: 80px;
+	 background-color: rgba(93, 203, 133, 0.3);
+	 opacity: 0;
+	 animation: animation-a-button-wave--pulse-l 2.25s 0.25s linear infinite;
+}
+ .a-button-wave__text {
+	 font-size: 11px;
+	 text-transform: uppercase;
+	 letter-spacing: 1px;
+	 display: block;
+	 position: absolute;
+	 bottom: -25px;
+	 width: 100%;
+	 transition: color 0.2s ease-in;
+}
+ @keyframes animation-a-button-wave--pulse-m {
+	 0% {
+		 width: 32px;
+		 height: 32px;
+		 opacity: 0;
+	}
+	 25% {
+		 width: 48px;
+		 height: 48px;
+		 opacity: 0.5;
+	}
+	 50% {
+		 width: 64px;
+		 height: 64px;
+		 opacity: 1;
+	}
+	 75% {
+		 width: 68px;
+		 height: 68px;
+		 opacity: 0.5;
+	}
+	 100% {
+		 width: 72px;
+		 height: 72px;
+		 opacity: 0;
+	}
+}
+ @keyframes animation-a-button-wave--pulse-l {
+	 0% {
+		 width: 48px;
+		 height: 48px;
+		 opacity: 0;
+	}
+	 25% {
+		 width: 64px;
+		 height: 64px;
+		 opacity: 0.5;
+	}
+	 50% {
+		 width: 80px;
+		 height: 80px;
+		 opacity: 1;
+	}
+	 75% {
+		 width: 88px;
+		 height: 88px;
+		 opacity: 0.5;
+	}
+	 100% {
+		 width: 96px;
+		 height: 96px;
+		 opacity: 0;
+	}
+}
+.a-button-wave__icon svg{
+    width: 30px;
+}

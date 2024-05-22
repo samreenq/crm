@@ -1,0 +1,185 @@
+.camp-form * {
+  
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    
+}
+.camp-form > .card
+{
+    box-shadow: 20px 20px 60px #cacaca, -20px -20px 60px #ffffff !important;
+    padding: 10px;
+}
+.camp-form :root {
+    --clr: #222327;
+}
+.camp-form .navigation {
+    position: relative;
+    width: 400px;
+    height: 70px;
+    background: #0c2342;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.camp-form .navigation ul {
+    display: flex;
+}
+.camp-form .navigation ul li {
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+.camp-form ion-icon.md.hydrated {
+    color: #fff;
+    font-weight: bold;
+    font-size: 28px;
+}
+.camp-form .navigation ul li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    color: white;
+}
+.camp-form .navigation ul li a .icon {
+    position: relative;
+    display: block;
+    left: -1px;
+    line-height: 75px;
+    font-size: 1.5em;
+    text-align: center;
+    transition: 0.5s;
+    color: var(--clr);
+}
+.camp-form .navigation ul li.active a .icon {
+    transform: translateY(-23px);
+}
+.camp-form .navigation ul li a .text {
+    position: absolute;
+    font-weight: 400;
+    font-size: 0.75em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+.camp-form .navigation ul li.active a .text {
+    opacity: 1;
+    transform: translateY(22px);
+    font-size: 12px;
+    color: #fff !important;
+}
+.camp-form .indicator {
+    position: absolute;
+    top: -50%;
+    width: 70px;
+    height: 70px;
+    background: tomato;
+    border-radius: 50%;
+    border: 6px solid #f5f5f5;
+    transition: 0.5s;
+}
+.camp-form .indicator::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius: 20px;
+    box-shadow: 1px -10px 0 0 #f5f5f5;
+}
+.camp-form .indicator::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 20px;
+    box-shadow: -1px -10px 0 0 #f5f5f5;
+}
+
+/* Indicator Transitions */
+.camp-form .navigation ul li:nth-child(1).active ~ .indicator {
+    transform: translateX(calc(70px * 0));
+}
+.camp-form .navigation ul li:nth-child(2).active ~ .indicator {
+    transform: translateX(calc(70px * 1));
+}
+.camp-form .navigation ul li:nth-child(3).active ~ .indicator {
+    transform: translateX(calc(70px * 2));
+}
+.camp-form .navigation ul li:nth-child(4).active ~ .indicator {
+    transform: translateX(calc(70px * 3));
+}
+.camp-form .navigation ul li:nth-child(5).active ~ .indicator {
+    transform: translateX(calc(70px * 4));
+}
+.camp-form .event-card > .card-body {
+    height: 290px;
+    transition: transform 0.6s ease;
+    text-align: center;
+}
+.camp-form .event-card > .card-body:hover {
+    background: radial-gradient(at 50% -20%, #1967a9, #0a1832) fixed;
+    transition: 0.2s;
+    transform: scale(1.1);
+}
+.camp-form .event-card > .card-body:hover button {
+    background: #fff;
+    color: #0c2342;
+    width: 100%;
+    height: 34px;
+    border: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: 400;
+    border-radius: 6px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.camp-form .event-card > .card-body button {
+    width: 100%;
+    height: 34px;
+    border: none;
+    background: #0c2342;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: 400;
+    border-radius: 6px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.camp-form .morning-heading h6 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #103b66;
+}
+.icon-inner .ionicon{
+    color:white;
+}
+
+.child-profile .card {
+
+
+    border-radius: 50px;
+    background: #eeeeee;
+    box-shadow: 20px 20px 60px #cacaca, -20px -20px 60px #ffffff;
+    border: none;
+
+}
+
+
+

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\ModelContacts;
+use App\Models\ModelOrganization;
+use App\Models\ModelUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -50,8 +52,9 @@ class ContactController extends Controller
         //
         $pageTitle = "Add ".$this->_module;
         $data['status_options']['options'] = statusDropdown();
-        $data['user_options']['options'] = orgnizationTypeDropdown();
-        $data['organization_options']['options'] = orgnizationTypeDropdown();
+        $data['gender_options']['options'] = genderDropdown();
+        $data['user_options']['options'] = ModelUsers::dropdownList();
+        $data['organization_options']['options'] = ModelOrganization::dropdownList();
 
         return view("web.Admin.$this->_module.add")->with("pageTitle", $pageTitle)
         ->with('data',$data);

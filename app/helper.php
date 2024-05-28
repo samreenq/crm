@@ -155,6 +155,20 @@ if(!function_exists('cD'))
         }
     }
 
+    if(!function_exists('genderDropdown'))
+    {
+        /**
+         * Status Dropdown values
+         */
+        function genderDropdown()
+        {
+           return array(
+                'male' => "Male",
+                'female' => "Female"
+            );
+        }
+    }
+
 
 
 ?>

@@ -23,4 +23,21 @@ class ModelOrganization extends Model
         $fetchData = self::get()->toArray();
         return empty($fetchData) ? null : $fetchData;
     }
+
+    /**
+     * Get list for dropdown
+     */
+    public static function dropdownList()
+    {
+        $return = array();
+        $data = self::all('id','name');
+
+        if($data){
+            $data_arr = $data->toArray();
+            foreach($data_arr as $value){
+                $return[$value['id']] = $value['name'];
+            }
+        }
+        return $return;
+    }
 }

@@ -56,7 +56,7 @@ Route::group(['middleware'=>['AdminAuth']],function(){
   Route::get('organization', [OrganizationController::class,'list'])->name('admin.organization');
   Route::get('manage-organization/ajax', [OrganizationController::class,'listAjax'])->name('admin.manage-organization.ajax');
   Route::get('organization/add', [OrganizationController::class,'add'])->name('admin.organization.add');
-  Route::post('organization/store', [UserController::class,'store'])->name('admin.organization.store');
+  Route::post('organization/store', [OrganizationController::class,'store'])->name('admin.organization.store');
 
 
   //Contacts

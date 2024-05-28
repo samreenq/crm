@@ -40,4 +40,14 @@ class ModelOrganization extends Model
         }
         return $return;
     }
+
+    /**
+     * Create new record
+     */
+    public function createRecord($data)
+    {
+        $this->name = $data['name'];
+        $this->email = $data['email'];
+        $this->save();
+    }
 }

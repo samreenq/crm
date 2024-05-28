@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\ModelOrganization;
+use Exception;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class OrganizationController extends Controller
@@ -45,5 +47,36 @@ class OrganizationController extends Controller
 
         return view("web.Admin.organization.add")->with("pageTitle", $pageTitle)
         ->with('data',$data);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        try{
+            $validator = Validator::make($request->all(),
+            [
+                'name' => 'required|string|max:100',
+                'email' => 'required|email|unique:users|max:100',
+                'phone' => 'required|max:100',
+            ]);
+
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
+
+              //Save data in model
+            $data =  $this->_model->createRecord($request->all());
+            if($data)
+            return redirect('admin/organization')->with('success','Organization has been added successfully');
+        }
+        catch(Exception $e){
+            return redirect()->back()->with('error',$e->getMessage());
+        }
+
     }
 }

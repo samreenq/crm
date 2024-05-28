@@ -26,7 +26,7 @@
             {{-- @include('include.es_msg') --}}
             @include('include.flash-message')
 
-            <form id="edit-company-form-by-admin" name="data_form" method="post" action="{{ route('admin.contacts.store') }}">
+            <form id="edit-company-form-by-admin" name="data_form" method="post" action="{{ route('admin.organization.store') }}">
                 @csrf
                 <div class="alert alert-danger error-msg" style="display:none">
                     <ul></ul>

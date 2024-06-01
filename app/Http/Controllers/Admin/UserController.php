@@ -61,7 +61,6 @@ class UserController extends Controller
                 'phone' => 'required|max:100',
                 'password' => 'required|string|min:8',
                 //'password_confirmation' => 'required|min:8',
-               // 'address' => 'required'
             ]);
 
             if ($validator->fails()) {

@@ -56,7 +56,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <x-selectField label='focus' className="eventClass" labelCaption="Gender"
-                        name="type" defaultOption="Select gender" :options="$data['gender_options']" />
+                        name="gender" defaultOption="Select gender" :options="$data['gender_options']" />
                     </div>
                     <div class="col-md-6">
                         <x-inputField label='date_of_birth' labelCaption="Date of Birth"
@@ -70,7 +70,7 @@
 
                     <div class="col-md-6">
                         <x-inputField label='city' labelCaption="City"
-                        id="city" type="text" name="no_of_employees"
+                        id="city" type="text" name="city"
                         placeholder="Enter City"  />
                     </div>
 

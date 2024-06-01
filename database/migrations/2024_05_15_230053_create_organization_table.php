@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('phone',50)->unique()->nullable();
             $table->text('address')->nullable();
             $table->text('profile_link')->nullable();
-            $table->text('no_of_employees')->nullable();
-            $table->text('annual_revenue')->nullable();
+            $table->integer('no_of_employees')->nullable();
+            $table->decimal('annual_revenue',15,2)->nullable();
             $table->enum('status',['active','inactive'])->default('active');
             $table->timestamps();
             $table->softDeletes($column = 'deleted_at', $precision = 0);

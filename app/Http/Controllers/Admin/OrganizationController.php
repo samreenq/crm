@@ -63,6 +63,10 @@ class OrganizationController extends Controller
                 'name' => 'required|string|max:100',
                 'email' => 'required|email|unique:users|max:100',
                 'phone' => 'required|max:100',
+                'no_of_employees' => 'required|integer',
+                'annual_revenue' => 'required',
+                'address' => 'required',
+                'status' => 'required'
             ]);
 
             if ($validator->fails()) {

@@ -47,7 +47,16 @@ class ModelOrganization extends Model
     public function createRecord($data)
     {
         $this->name = $data['name'];
+        $this->type = $data['type'];
         $this->email = $data['email'];
-        $this->save();
+        $this->description = $data['description'];
+        $this->phone = $data['phone'];
+        $this->no_of_employees = $data['no_of_employees'];
+        $this->annual_revenue = $data['annual_revenue'];
+        $this->address = $data['address'];
+        $this->profile_link = $data['profile_link'];
+        $this->status = $data['status'];
+        $id = $this->save();
+        return $id;
     }
 }

@@ -8,6 +8,7 @@ use App\Models\ModelOrganization;
 use App\Models\ModelUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Lib\CustomLib;
 
 class ContactController extends Controller
 {
@@ -55,6 +56,8 @@ class ContactController extends Controller
         $data['gender_options']['options'] = genderDropdown();
         $data['user_options']['options'] = ModelUsers::dropdownList();
         $data['organization_options']['options'] = ModelOrganization::dropdownList();
+        $data['country_options']['options'] = CustomLib::countryList();
+        //echo '<pre>'; print_r($data); exit;
 
         return view("web.Admin.$this->_module.add")->with("pageTitle", $pageTitle)
         ->with('data',$data);

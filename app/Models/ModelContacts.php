@@ -19,11 +19,17 @@ class ModelContacts extends Model
         return empty($fetchData) ? null : $fetchData;
     }
 
+    /**
+     * User Relationship 
+     */
     public function user()
     {
         return $this->belongsTo('App\Models\ModelUsers','user_id', 'id');
     }
 
+    /**
+     * Organization Relationship
+     */
     public function organization()
     {
         return $this->belongsTo('App\Models\ModelOrganization','organization_id', 'id');

@@ -90,9 +90,8 @@
                     </div>
 
                     <div class="col-md-6">
-                        <x-inputField label='country' labelCaption="Country"
-                        id="country" type="text" name="country"
-                        placeholder="Enter Country"  />
+                         <x-selectField label='focus' className="eventClass" labelCaption="Country"
+                         name="country" defaultOption="Select country" :options="$data['country_options']" />
                     </div>
                 </div>
 

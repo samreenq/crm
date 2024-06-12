@@ -7,9 +7,6 @@
 <table id="datatable-buttons" class="table  table-bordered dt-responsive nowrap "
     style="border-collapse: collapse; border-spacing: 0; width: 100%;">
 
-            <div class="dt-buttons btn-group">
-              <a href="{{route('admin.contacts.add')}}"><button type="button" class="btn btn-primary" id="update-ingredent">Add Contact</button></a>
-            </div>
 
     <thead>
         <tr>

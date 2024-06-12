@@ -6,6 +6,7 @@
             url: dataUrl,
             success: function(data) {
                 $('#manage-users').html(data);
+                hideExportsBtn();
             }
         })
     }
@@ -17,6 +18,7 @@
             url: dataUrl,
             success: function(data) {
                 $('#manage-organization').html(data);
+                hideExportsBtn();
             }
         })
     }
@@ -29,8 +31,15 @@
             url: dataUrl,
             success: function(data) {
                 $('#manage-contacts').html(data);
+                hideExportsBtn();
             }
         })
+    }
+
+    function hideExportsBtn()
+    {
+        $(".buttons-excel").hide();
+        $(".buttons-pdf").hide();
     }
 
 </script>

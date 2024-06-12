@@ -7,10 +7,6 @@
 <table id="datatable-buttons" class="table  table-bordered dt-responsive nowrap "
     style="border-collapse: collapse; border-spacing: 0; width: 100%;">
 
-            <div class="dt-buttons btn-group">
-              <a href="{{route('admin.organization.add')}}"><button type="button" class="btn btn-primary" id="update-ingredent">Add organization</button></a>
-            </div>
-
     <thead>
         <tr>
             <th style="max-width:50px">Sr. No.</th>

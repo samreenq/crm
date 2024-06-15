@@ -42,4 +42,18 @@
         $(".buttons-pdf").hide();
     }
 
+    function manageLeads()
+    {
+        dataUrl = "{{ route('admin.manage-leads.ajax') }}";
+
+        $.ajax({
+            url: dataUrl,
+            success: function(data) {
+                $('#manage-leads').html(data);
+                hideExportsBtn();
+            }
+        })
+    }
+
+
 </script>

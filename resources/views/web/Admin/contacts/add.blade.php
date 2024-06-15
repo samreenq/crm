@@ -37,8 +37,6 @@
                         id="name" type="text" name="name"
                         placeholder="Enter Name" />
                     </div>
-
-
                 </div>
 
                 <div class="row">
@@ -69,29 +67,27 @@
                 <div class="row">
 
                     <div class="col-md-6">
-                        <x-inputField label='city' labelCaption="City"
-                        id="city" type="text" name="city"
-                        placeholder="Enter City"  />
-                    </div>
+                        <x-selectField label='focus' className="eventClass" labelCaption="Country"
+                        name="country_id" id="country_id" defaultOption="Select country" :options="$data['country_options']" />
+                   </div>
 
                     <div class="col-md-6">
-                        <x-inputField label='state' labelCaption="State"
-                        id="state" type="text" name="state"
-                        placeholder="Enter State"  />
+                        <x-selectField label='focus' className="eventClass" labelCaption="State"
+                        name="state_id"  id="state_id" defaultOption="Select state" :options="$data['state_options']" />
                     </div>
                 </div>
 
                 <div class="row">
 
                     <div class="col-md-6">
-                        <x-inputField label='zip_code' labelCaption="Zip Cde"
-                        id="zip_code" type="text" name="zip_code"
-                        placeholder="Enter Zip Code"  />
+                        <x-selectField label='focus' className="eventClass" labelCaption="City"
+                        name="city_id" id="city_id" defaultOption="Select city" :options="array()" />
                     </div>
 
                     <div class="col-md-6">
-                         <x-selectField label='focus' className="eventClass" labelCaption="Country"
-                         name="country" defaultOption="Select country" :options="$data['country_options']" />
+                        <x-inputField label='zip_code' labelCaption="Zip Cde"
+                        id="zip_code" type="text" name="zip_code"
+                        placeholder="Enter Zip Code"  />
                     </div>
                 </div>
 
@@ -125,4 +121,36 @@
         </div>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#country_id').change(function(){
+                var cid = $(this).val();
+                //alert(cid)
+                $.ajax({
+                    url:"{{route('admin.contacts.getstates')}}",
+                    type: 'POST',
+                    dataType: 'json',
+                    data:{  
+                        "country_id": cid,
+                       _token: "{{csrf_token()}}"
+                    },
+                    success: function(response){
+                        //console.log(response);
+                        //$('#state_id').html('');
+                        // Handle response
+                    },
+                    error: function(){
+                         // Handle error
+                    }
+                });
+
+            });
+        });
+        
+    </script>
 @endsection
+
+
+
+

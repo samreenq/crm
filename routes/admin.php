@@ -64,6 +64,7 @@ Route::group(['middleware'=>['AdminAuth']],function(){
   Route::get('manage-contacts/ajax', [ContactController::class,'listAjax'])->name('admin.manage-contacts.ajax');
   Route::get('contacts/add', [ContactController::class,'create'])->name('admin.contacts.add');
   Route::post('contacts/store', [ContactController::class,'store'])->name('admin.contacts.store');
+  Route::post('contacts/getstates', [ContactController::class,'fetchState'])->name('admin.contacts.getstates');
 });
 
 

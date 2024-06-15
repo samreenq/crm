@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Lib\CustomLib;
 
+
 class ContactController extends Controller
 {
     private $_module = 'contacts';
@@ -48,7 +49,7 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
         $pageTitle = "Add ".$this->_module;
@@ -57,6 +58,7 @@ class ContactController extends Controller
         $data['user_options']['options'] = ModelUsers::dropdownList();
         $data['organization_options']['options'] = ModelOrganization::dropdownList();
         $data['country_options']['options'] = CustomLib::countryList();
+        $data['state_options']['options'] = CustomLib::getStateList($request->country_id);
         //echo '<pre>'; print_r($data); exit;
 
         return view("web.Admin.$this->_module.add")->with("pageTitle", $pageTitle)
@@ -118,4 +120,17 @@ class ContactController extends Controller
     {
         //
     }
+
+    public function fetchState(Request $request){
+       //echo '<pre>'; print_r($request->country_id); exit;
+       if ($request->country_id) {
+            $stateList = CustomLib::getStateList($request->country_id);
+            //echo '<pre>'; print_r($stateList); exit;
+            return response()->json($stateList);
+        } else {
+             return response()->json(['error' => 'Country ID is missing.'], 400);
+        }
+   
+    }
+    
 }

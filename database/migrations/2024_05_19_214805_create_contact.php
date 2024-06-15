@@ -22,9 +22,9 @@ return new class extends Migration
             $table->enum('gender',['male','female'])->default('male');
             $table->date('date_of_birth')->nullable();
             $table->text('address')->nullable();
-            $table->string('country',100)->nullable();
-            $table->string('city',100)->nullable();
-            $table->string('state',100)->nullable();
+            $table->int('country_id')->nullable();
+            $table->int('city_id')->nullable();
+            $table->int('state_id')->nullable();
             $table->string('zipcode',100)->nullable();
             $table->enum('status',['active','inactive'])->default('active');
             $table->timestamps();
@@ -33,6 +33,8 @@ return new class extends Migration
             // indexes
             $table->index('user_id');
             $table->index('organization_id');
+            $table->index('city_id');
+            $table->index('state_id');
         });
     }
 

@@ -45,7 +45,6 @@
     function manageLeads()
     {
         dataUrl = "{{ route('admin.manage-leads.ajax') }}";
-
         $.ajax({
             url: dataUrl,
             success: function(data) {

@@ -30,8 +30,7 @@
                         </span></a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.leads') }}" class="waves-effect"><i class="fa fa-crosshairs"></i><span> Leads
-                        </span></a>
+                    <a href="{{ route('admin.leads') }}" class="waves-effect"><i class="fa fa-crosshairs"></i><span> Leads</span></a>
                 </li>
 
 

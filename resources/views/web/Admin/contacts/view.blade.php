@@ -49,7 +49,9 @@
     <div class="card m-b-20">
         <div class="card-body">
             @include('include.es_msg')
-
+            <div class="dt-buttons btn-group">
+                <a href="{{route('admin.contacts.add')}}"><button type="button" class="btn btn-primary" id="update-ingredent">Add Contact</button></a>
+              </div>
             <div class="row" id="manage-contacts">
 
             </div>

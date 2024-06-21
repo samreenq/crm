@@ -41,14 +41,15 @@
 @endpush
 
 
-
-
-
-
 @section('body_container')
     <div class="card m-b-20">
         <div class="card-body">
             @include('include.es_msg')
+
+
+            <div class="dt-buttons btn-group">
+                <a href="{{route('admin.users.add')}}"><button type="button" class="btn btn-primary" id="update-ingredent">Add User</button></a>
+              </div>
 
             <div class="row" id="manage-users">
 

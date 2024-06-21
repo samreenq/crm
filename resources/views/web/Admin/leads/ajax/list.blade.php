@@ -1,5 +1,5 @@
 <div class="col-md-12 text-center mb-3 mt-3" style="width:100%; background-color:#1967a9;color:white;padding:5px;">
-    <h3>Manage Contacts</h3>
+    <h3>Manage Leads</h3>
 
 </div>
 
@@ -12,10 +12,11 @@
         <tr>
             <th style="max-width:50px">Sr. No.</th>
             <th>Name</th>
-            <th>User Name</th>
+            <th>Contact Name</th>
             <th style="max-width:100px">Organization</th>
-            <th style="max-width:100px">Gender</th>
-            <th style="max-width:100px">Address</th>
+            <th style="max-width:100px">Type</th>
+            <th style="max-width:100px">Source</th>
+            <th style="max-width:100px">Expected Close Date</th>
             <th style="max-width:100px">Status</th>
             <th style="max-width:100px">Action</th>
 
@@ -31,10 +32,11 @@
                 <tr>
                     <td>{{ $serial++ }}</td>
                     <td>{{ $value['name'] }}</td>
-                    <td>{{ $value['user']['name'] }}</td>
+                    <td>{{ $value['contact']['name'] }}</td>
                     <td>{{ $value['organization']['name'] }}</td>
-                    <td>{{ $value['gender'] }}</td>
-                    <td><span>{{ $value['address'] }}</span></td>
+                    <td>{{ $value['type'] }}</td>
+                    <td><span class="badge-primary">{{ $value['source'] }}</span></td>
+                    <td>{{ $value['expected_close_date'] }}</td>
                     <td><span class="badge-success">{{ $value['status'] }}</span></td>
                     <td>
                         <a href="" id="edit-company-admin" data-id="{{ $value['id'] }}"

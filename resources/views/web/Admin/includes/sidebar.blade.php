@@ -29,6 +29,10 @@
                     <a href="{{ route('admin.contacts') }}" class="waves-effect"><i class="fa fa-phone"></i><span> Contacts
                         </span></a>
                 </li>
+                <li>
+                    <a href="{{ route('admin.leads') }}" class="waves-effect"><i class="fa fa-crosshairs"></i><span> Leads</span></a>
+                </li>
+
 
               {{--   <li>
                     <a href="{{ route('admin.companies') }}" class="waves-effect"><i class="fa fa-user-o"></i><span> Companies

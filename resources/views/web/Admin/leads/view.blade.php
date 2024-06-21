@@ -32,7 +32,7 @@
 
     <script>
         $(document).ready(function() {
-            manageOrganization();
+            manageLeads();
         });
     </script>
 
@@ -49,11 +49,10 @@
     <div class="card m-b-20">
         <div class="card-body">
             @include('include.es_msg')
-
             <div class="dt-buttons btn-group">
-                <a href="{{route('admin.organization.add')}}"><button type="button" class="btn btn-primary" id="update-ingredent">Add organization</button></a>
+                <a href="{{route('admin.leads.add')}}"><button type="button" class="btn btn-primary" id="update-ingredent">Add Lead</button></a>
               </div>
-            <div class="row" id="manage-organization">
+            <div class="row" id="manage-leads">
 
             </div>
             <bR><br>

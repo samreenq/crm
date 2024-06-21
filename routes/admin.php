@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\LeadController;
 use App\Http\Controllers\Admin\OrganizationController;
 use App\Http\Controllers\Admin\User\UserController as UserUserController;
 use App\Http\Controllers\Admin\UserController;
@@ -64,7 +65,16 @@ Route::group(['middleware'=>['AdminAuth']],function(){
   Route::get('manage-contacts/ajax', [ContactController::class,'listAjax'])->name('admin.manage-contacts.ajax');
   Route::get('contacts/add', [ContactController::class,'create'])->name('admin.contacts.add');
   Route::post('contacts/store', [ContactController::class,'store'])->name('admin.contacts.store');
-  Route::post('contacts/getstates', [ContactController::class,'fetchState'])->name('admin.contacts.getstates');
+<<<<<<< HEAD
+ 
+  =======
+
+  //Leads
+  Route::get('leads', [LeadController::class,'index'])->name('admin.leads');
+  Route::get('manage-leads/ajax', [LeadController::class,'listAjax'])->name('admin.manage-leads.ajax');
+  Route::get('leads/add', [LeadController::class,'create'])->name('admin.leads.add');
+  Route::post('leads/store', [LeadController::class,'store'])->name('admin.leads.store');
+>>>>>>> 19da191c9a5b40c5273db951eb9ffbfb4d2b6623
 });
 
 

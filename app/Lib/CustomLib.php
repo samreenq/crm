@@ -26,10 +26,9 @@ Class CustomLib {
         return $country_list;
     }
 
-    public static function getStateList($country_id){
-        //dd($country_id);
-        // if(!$country_id){
-            //echo '<pre>'; print_r($country_id); exit;
+    public static function getStateList($country_id)
+    {
+        // if(!$country_id){  
             $state_list = array();
             $world_countries_state =  World::countries([
                 'fields' => 'states',
@@ -50,7 +49,6 @@ Class CustomLib {
                             {   
                                 $state_list[$state['id']] = $state['name'];
                             }
-                        //echo "<pre>"; print_r($state_list); exit;
                     }
                     
                 }
@@ -61,6 +59,3 @@ Class CustomLib {
     }
 
 }
-
-
-// 

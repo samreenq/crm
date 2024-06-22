@@ -122,10 +122,9 @@ class ContactController extends Controller
     }
 
     public function fetchState(Request $request){
-       //echo '<pre>'; print_r($request->country_id); exit;
+      // echo '<pre>'; print_r($request->all()); exit;
        if ($request->country_id) {
             $stateList = CustomLib::getStateList($request->country_id);
-            //echo '<pre>'; print_r($stateList); exit;
             return response()->json($stateList);
         } else {
              return response()->json(['error' => 'Country ID is missing.'], 400);

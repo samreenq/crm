@@ -9,7 +9,8 @@ use App\Models\ModelUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Lib\CustomLib;
-
+use App\Models\ModelCountry;
+use Nnjeim\World\Models\Country;
 
 class ContactController extends Controller
 {
@@ -58,7 +59,7 @@ class ContactController extends Controller
         $data['user_options']['options'] = ModelUsers::dropdownList();
         $data['organization_options']['options'] = ModelOrganization::dropdownList();
         $data['country_options']['options'] = CustomLib::countryList();
-        $data['state_options']['options'] = CustomLib::getStateList($request->country_id);
+        $data['state_options']['options'] = CustomLib::countryList();
         //echo '<pre>'; print_r($data); exit;
 
         return view("web.Admin.$this->_module.add")->with("pageTitle", $pageTitle)
@@ -121,15 +122,24 @@ class ContactController extends Controller
         //
     }
 
+    /**
+     * Fetch States by COuntry
+     */
     public function fetchState(Request $request){
       // echo '<pre>'; print_r($request->all()); exit;
        if ($request->country_id) {
-            $stateList = CustomLib::getStateList($request->country_id);
-            return response()->json($stateList);
+
+            $model_country = New ModelCountry();
+            $country_code = $model_country->getColumnById($request->country_id,'iso2');
+
+            $stateList = CustomLib::getStateList($country_code);
+            $data['states'] = $stateList;
+
+            return response()->json($data);
         } else {
              return response()->json(['error' => 'Country ID is missing.'], 400);
         }
-   
+
     }
-    
+
 }

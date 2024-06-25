@@ -73,7 +73,7 @@
 
                     <div class="col-md-6">
                         <x-selectField label='focus' className="eventClass" labelCaption="State"
-                        name="state_id"  id="state_id" defaultOption="Select state" :options="$data['state_options']" />
+                        name="state_id"  id="state_id" defaultOption="Select state" :options="array()" />
                     </div>
                 </div>
 
@@ -132,25 +132,26 @@
                     url:"{{route('admin.contacts.getstates')}}",
                     type: 'POST',
                     dataType: 'json',
-                    data:{  
+                    data:{
                         "country_id": cid,
                        _token: "{{csrf_token()}}"
                     },
                     success: function(response){
-                        //console.log(response);
-                        //$('#state_id').html('');
-                        // Handle response
+                        $('#state_id').html('');
+                        $('#state_id').append('<option id="">Select state</option>')
+                            $.each(response.states, function(key, val){
+                                $('#state_id').append('<option id="' + key + '">' + val + '</option>');
+                            });
                     },
                     error: function(){
                          // Handle error
                     }
                 });
-
             });
 
             //on change state list cities
         });
-        
+
     </script>
 @endsection
 

@@ -20,7 +20,7 @@ class ModelContacts extends Model
     }
 
     /**
-     * User Relationship 
+     * User Relationship
      */
     public function user()
     {
@@ -34,4 +34,23 @@ class ModelContacts extends Model
     {
         return $this->belongsTo('App\Models\ModelOrganization','organization_id', 'id');
     }
+
+      /**
+     * Get User list for dropdown
+     */
+    public static function dropdownList()
+    {
+        $return = array();
+        $data = self::where('status','active')->get(['id','name']);
+
+        if($data){
+            $data_arr = $data->toArray();
+            foreach($data_arr as $value){
+                $return[$value['id']] = $value['name'];
+            }
+        }
+        return $return;
+    }
+
+
 }

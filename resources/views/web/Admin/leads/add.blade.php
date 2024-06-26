@@ -26,7 +26,7 @@
             {{-- @include('include.es_msg') --}}
             @include('include.flash-message')
 
-            <form id="edit-company-form-by-admin" name="data_form" method="post" action="{{ route('admin.organization.store') }}">
+            <form id="edit-company-form-by-admin" name="data_form" method="post" action="{{ route('admin.leads.store') }}">
                 @csrf
                 <div class="alert alert-danger error-msg" style="display:none">
                     <ul></ul>
@@ -37,70 +37,56 @@
                         id="name" type="text" name="name"
                         placeholder="Enter Name" />
                     </div>
-
-
+                    <div class="col-md-6">
+                        <x-selectField label='focus' className="eventClass" labelCaption="Type"
+                        name="type" defaultOption="Select Type" :options="$data['type_options']" />
+                    </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6">
-                        <x-selectField label='focus' className="eventClass" labelCaption="User"
-                         name="type" defaultOption="Select user" :options="$data['user_options']" />
+                        <x-selectField label='focus' className="eventClass" labelCaption="Contact"
+                         name="contact_id" id="contact_id" defaultOption="Select contact" :options="$data['contact_options']" />
                     </div>
 
                     <div class="col-md-6">
                         <x-selectField label='focus' className="eventClass" labelCaption="Organization"
-                         name="type" defaultOption="Select organization" :options="$data['organization_options']" />
+                         name="organization_id" id="Organization_id" defaultOption="Select organization" :options="$data['organization_options']" />
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6">
-                        <x-selectField label='focus' className="eventClass" labelCaption="Gender"
-                        name="gender" defaultOption="Select gender" :options="$data['gender_options']" />
+                        <x-selectField label='focus' className="eventClass" labelCaption="Source"
+                        name="source" defaultOption="Select Source" :options="$data['source_options']" />
                     </div>
                     <div class="col-md-6">
-                        <x-inputField label='date_of_birth' labelCaption="Date of Birth"
-                        id="date_of_birth" type="text" name="date_of_birth"
-                        placeholder="Enter Date Of Birth"  />
+                        <x-inputField label='annual_revenue' labelCaption="Annual Revenue"
+                        id="annual_revenue" type="text" name="annual_revenue"
+                        placeholder="Enter Annual Revenue"  />
                     </div>
+
                 </div>
 
 
                 <div class="row">
 
                     <div class="col-md-6">
-                        <x-inputField label='city' labelCaption="City"
-                        id="city" type="text" name="city"
-                        placeholder="Enter City"  />
-                    </div>
-
-                    <div class="col-md-6">
-                        <x-inputField label='state' labelCaption="State"
-                        id="state" type="text" name="state"
-                        placeholder="Enter State"  />
-                    </div>
-                </div>
-
-                <div class="row">
-
-                    <div class="col-md-6">
-                        <x-inputField label='zip_code' labelCaption="Zip Cde"
-                        id="zip_code" type="text" name="zip_code"
-                        placeholder="Enter Zip Code"  />
-                    </div>
-
-                    <div class="col-md-6">
-                         <x-selectField label='focus' className="eventClass" labelCaption="Country"
-                         name="country" defaultOption="Select country" :options="$data['country_options']" />
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <label for="name">Address:</label>
+                        <label for="name">Description:</label>
                         <textarea id="txtArea" rows="5" cols="30" class="form-control"
-                        placeholder="Enter Address" name="address" id="address" ></textarea>
+                        placeholder="Enter description" name="description" id="description" ></textarea>
                     </div>
+
+                    <div class="col-md-6">
+                        <x-inputField label='expected_close_date' labelCaption="Expected Close Date"
+                        id="expected_close_date" type="text" name="expected_close_date"
+                        placeholder="Enter Annual Revenue"  />
+                    </div>
+                </div>
+
+
+                <div class="row">
+
                     <div class="col-md-6">
                         <x-selectField label='focus' className="eventClass" labelCaption="Status"
                         name="status" defaultOption="Select Status" :options="$data['status_options']" />

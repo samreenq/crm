@@ -36,7 +36,7 @@ Class CustomLib {
                     'iso2' =>$country_code,
                 ]
             ]);
-            //echo '<pre>'; print_r($world_countries_state); exit;
+
             if ($world_countries_state->success) {
                 $countries_state = $world_countries_state->data;
                 $countries_state = json_decode($countries_state,true);

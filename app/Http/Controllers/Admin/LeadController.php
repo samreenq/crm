@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ModelContacts;
 use App\Models\ModelLead;
+use App\Models\ModelOrganization;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -47,6 +49,16 @@ class LeadController extends Controller
     public function create()
     {
         //
+        $pageTitle = "Add ".$this->_module;
+        $data['status_options']['options'] = statusDropdown();
+        $data['gender_options']['options'] = genderDropdown();
+        $data['contact_options']['options'] = ModelContacts::dropdownList();
+        $data['organization_options']['options'] = ModelOrganization::dropdownList();
+        $data['source_options']['options'] = leadSourceDropdown();
+        $data['type_options']['options'] = leadTypeDropdown();
+
+        return view("web.Admin.$this->_module.add")->with("pageTitle", $pageTitle)
+        ->with('data',$data);
     }
 
     /**

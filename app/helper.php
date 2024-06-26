@@ -169,6 +169,36 @@ if(!function_exists('cD'))
         }
     }
 
+    if(!function_exists('leadSourceDropdown'))
+    {
+        /**
+         * Status Dropdown values
+         */
+        function leadSourceDropdown()
+        {
+           return array(
+                'email'=>'Email',
+                'phone' => 'Phone',
+                'contact_form' => 'Contact Form',
+                'direct' => 'Direct'
+            );
+        }
+    }
+
+    if(!function_exists('leadTypeDropdown'))
+    {
+        /**
+         * Status Dropdown values
+         */
+        function leadTypeDropdown()
+        {
+           return array(
+            'new_business' => 'New Business',
+            'existing_business' => 'Existing Business'
+            );
+        }
+    }
+
 
 
 ?>

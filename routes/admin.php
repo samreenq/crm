@@ -51,6 +51,8 @@ Route::group(['middleware'=>['AdminAuth']],function(){
   Route::get('manage-users/ajax', [UserController::class,'listUsers'])->name('admin.manage-users.ajax');
   Route::get('users/add', [UserController::class,'add'])->name('admin.users.add');
   Route::post('users/store', [UserController::class,'store'])->name('admin.users.store');
+  Route::get('users/edit/{id}', [UserController::class,'edit'])->name('admin.users.edit');
+  Route::post('users/update/{id}', [UserController::class,'update'])->name('admin.users.update');
 
 
   //Organization

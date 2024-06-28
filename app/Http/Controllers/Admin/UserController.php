@@ -15,6 +15,7 @@ class UserController extends Controller
 
     private $usersRepository;
     private $_model;
+    private $_module = 'User';
 
     public function __construct(UsersRepositoriesInterface $usersRepository)
     {
@@ -24,7 +25,7 @@ class UserController extends Controller
 
     public function list()
     {
-        $pageTitle = "Manage Users";
+        $pageTitle = "Manage ".$this->_module.'s';
         return view("web.Admin.users.view")->with("pageTitle", $pageTitle);
     }
     public function listUsers(Request $request)
@@ -40,7 +41,7 @@ class UserController extends Controller
      */
     public function add()
     {
-        $pageTitle = "Add Users";
+        $pageTitle = "Add ".$this->_module;
         $data['status_options']['options'] = statusDropdown();
         $data['role_options']['options'] = roleDropdown();
 
@@ -75,6 +76,29 @@ class UserController extends Controller
             return redirect()->back()->with('error',$e->getMessage());
         }
 
+    }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+        $pageTitle = "Edit ".$this->_module;
+        $data['status_options']['options'] = statusDropdown();
+        $data['role_options']['options'] = roleDropdown();
+
+        //Get User data by id
+        $record = $this->_model->getById($id);
+       // echo $record->name; exit;
+
+        return view("web.Admin.users.edit",[
+            "pageTitle"=> $pageTitle,
+            "data" => $data,
+            'record'=> $record
+        ]);
     }
 
 }

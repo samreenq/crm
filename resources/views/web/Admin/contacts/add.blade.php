@@ -33,7 +33,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <x-inputField label='name' labelCaption="Name"
+                        <x-inputField label='name' labelCaption="Name*"
                         id="name" type="text" name="name"
                         placeholder="Enter Name" />
                     </div>
@@ -41,23 +41,23 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        <x-selectField label='focus' className="eventClass" labelCaption="User"
+                        <x-selectField label='focus' className="eventClass" labelCaption="User*"
                          name="type" defaultOption="Select user" :options="$data['user_options']" />
                     </div>
 
                     <div class="col-md-6">
-                        <x-selectField label='focus' className="eventClass" labelCaption="Organization"
+                        <x-selectField label='focus' className="eventClass" labelCaption="Organization*"
                          name="type" defaultOption="Select organization" :options="$data['organization_options']" />
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6">
-                        <x-selectField label='focus' className="eventClass" labelCaption="Gender"
+                        <x-selectField label='focus' className="eventClass" labelCaption="Gender*"
                         name="gender" defaultOption="Select gender" :options="$data['gender_options']" />
                     </div>
                     <div class="col-md-6">
-                        <x-inputField label='date_of_birth' labelCaption="Date of Birth"
+                        <x-inputField label='date_of_birth' labelCaption="Date of Birth*"
                         id="date_of_birth" type="text" name="date_of_birth"
                         placeholder="Enter Date Of Birth"  />
                     </div>
@@ -67,7 +67,7 @@
                 <div class="row">
 
                     <div class="col-md-6">
-                        <x-selectField label='focus' className="eventClass" labelCaption="Country"
+                        <x-selectField label='focus' className="eventClass" labelCaption="Country*"
                         name="country_id" id="country_id" defaultOption="Select country" :options="$data['country_options']" />
                    </div>
 
@@ -80,7 +80,7 @@
                 <div class="row">
 
                     <div class="col-md-6">
-                        <x-selectField label='focus' className="eventClass" labelCaption="City"
+                        <x-selectField label='focus' className="eventClass" labelCaption="City*"
                         name="city_id" id="city_id" defaultOption="Select city" :options="array()" />
                     </div>
 
@@ -98,7 +98,7 @@
                         placeholder="Enter Address" name="address" id="address" ></textarea>
                     </div>
                     <div class="col-md-6">
-                        <x-selectField label='focus' className="eventClass" labelCaption="Status"
+                        <x-selectField label='focus' className="eventClass" labelCaption="Status*"
                         name="status" defaultOption="Select Status" :options="$data['status_options']" />
                     </div>
                 </div>

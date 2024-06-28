@@ -33,35 +33,35 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <x-inputField label='name' labelCaption="Name"
+                        <x-inputField label='name' labelCaption="Name*"
                         id="name" type="text" name="name"
                         placeholder="Enter Name" />
                     </div>
                     <div class="col-md-6">
-                        <x-selectField label='focus' className="eventClass" labelCaption="Type"
+                        <x-selectField label='focus' className="eventClass" labelCaption="Type*"
                         name="type" defaultOption="Select Type" :options="$data['type_options']" />
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6">
-                        <x-selectField label='focus' className="eventClass" labelCaption="Contact"
+                        <x-selectField label='focus' className="eventClass" labelCaption="Contact*"
                          name="contact_id" id="contact_id" defaultOption="Select contact" :options="$data['contact_options']" />
                     </div>
 
                     <div class="col-md-6">
-                        <x-selectField label='focus' className="eventClass" labelCaption="Organization"
+                        <x-selectField label='focus' className="eventClass" labelCaption="Organization*"
                          name="organization_id" id="Organization_id" defaultOption="Select organization" :options="$data['organization_options']" />
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6">
-                        <x-selectField label='focus' className="eventClass" labelCaption="Source"
+                        <x-selectField label='focus' className="eventClass" labelCaption="Source*"
                         name="source" defaultOption="Select Source" :options="$data['source_options']" />
                     </div>
                     <div class="col-md-6">
-                        <x-inputField label='annual_revenue' labelCaption="Annual Revenue"
+                        <x-inputField label='annual_revenue' labelCaption="Annual Revenue*"
                         id="annual_revenue" type="text" name="annual_revenue"
                         placeholder="Enter Annual Revenue"  />
                     </div>
@@ -78,7 +78,7 @@
                     </div>
 
                     <div class="col-md-6">
-                        <x-inputField label='expected_close_date' labelCaption="Expected Close Date"
+                        <x-inputField label='expected_close_date' labelCaption="Expected Close Date*"
                         id="expected_close_date" type="text" name="expected_close_date"
                         placeholder="Enter Annual Revenue"  />
                     </div>
@@ -88,7 +88,7 @@
                 <div class="row">
 
                     <div class="col-md-6">
-                        <x-selectField label='focus' className="eventClass" labelCaption="Status"
+                        <x-selectField label='focus' className="eventClass" labelCaption="Status*"
                         name="status" defaultOption="Select Status" :options="$data['status_options']" />
                     </div>
                 </div>

@@ -33,24 +33,24 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <x-inputField label='user_name' labelCaption="Name"
+                        <x-inputField label='user_name' labelCaption="Name*"
                         id="name" type="text" name="name"
                         placeholder="Enter Name" />
                     </div>
                     <div class="col-md-6">
-                        <x-selectField label='focus' className="eventClass" labelCaption="Select Role"
+                        <x-selectField label='focus' className="eventClass" labelCaption="Role*"
                         name="role" defaultOption="Select Role" :options="$data['role_options']" />
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6">
-                        <x-inputField label='user_name' labelCaption="Email"
+                        <x-inputField label='user_name' labelCaption="Email*"
                         id="email" type="email" name="email"
                         placeholder="Enter Email"  />
                     </div>
                     <div class="col-md-6">
-                        <x-inputField label='user_name' labelCaption="Phone"
+                        <x-inputField label='user_name' labelCaption="Phone*"
                         id="phone" type="phone" name="phone"
                         placeholder="Enter Phone"  />
                     </div>
@@ -59,13 +59,13 @@
                 <div class="row">
 
                     <div class="col-md-6">
-                        <x-inputField label='user_name' labelCaption="Password"
+                        <x-inputField label='user_name' labelCaption="Password*"
                         id="password" type="password" name="password"
                         placeholder="Enter Password"  />
                     </div>
 
                     <div class="col-md-6">
-                        <x-inputField label='user_name' labelCaption="Confirm Password"
+                        <x-inputField label='user_name' labelCaption="Confirm Password*"
                         id="password_confirmation" type="password" name="password_confirmation "
                         placeholder="Enter Password"  />
                     </div>
@@ -74,7 +74,7 @@
                 <div class="row">
 
                     <div class="col-md-6">
-                        <x-selectField label='focus' className="eventClass" labelCaption="Select Status"
+                        <x-selectField label='focus' className="eventClass" labelCaption="Select Status*"
                         name="status" defaultOption="Select Status" :options="$data['status_options']" />
                     </div>
 

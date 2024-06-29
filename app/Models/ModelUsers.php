@@ -71,4 +71,20 @@ class ModelUsers extends Model
         //$data = $record->toArray();
         //echo '<pre>'; print_r($record); exit;
     }
+
+    /**
+     * Update Record by id
+     */
+    public function updateRecord($data)
+    {
+        $record = $this->find($data['id']);
+        $record->name = $data['name'];
+        $record->email = $data['email'];
+        $record->phone = $data['phone'];
+        $record->role = $data['role'];
+        $record->status = $data['status'];
+         $record->save();
+         return true;
+
+    }
 }

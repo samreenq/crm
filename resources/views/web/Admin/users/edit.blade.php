@@ -72,7 +72,7 @@
 
                 </div>
 
-                <input type="hidden" name="id" value="" />
+                <input type="hidden" name="id" value="{{ $record->id }}" />
 
                 <div class="col-sm-12 mt-4 text-center">
                     <div class="form-group">

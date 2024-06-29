@@ -101,4 +101,36 @@ class UserController extends Controller
         ]);
     }
 
+      /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        try{
+            $validator = Validator::make($request->all(),
+            [
+                'name' => 'required|string|max:100',
+                'email' => 'required|email|unique:users,email,'.$id,
+                'phone' => 'required|unique:users,phone,'.$id,
+                'role' => 'required',
+                'status' => 'required'
+            ]);
+
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
+
+               $data = $this->_model->updateRecord($request->all());
+               if($data)
+                    return redirect('admin/users')->with('success','User has been updated successfully');
+        }
+        catch(Exception $e){
+            return redirect()->back()->with('error',$e->getMessage());
+        }
+    }
+
 }

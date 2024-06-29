@@ -58,7 +58,7 @@
                     </div>
                     <div class="col-md-6">
                         <x-inputField label='date_of_birth' labelCaption="Date of Birth*"
-                        id="date_of_birth" type="text" name="date_of_birth"
+                        id="date_of_birth" type="date" name="date_of_birth"
                         placeholder="Enter Date Of Birth"  />
                     </div>
                 </div>

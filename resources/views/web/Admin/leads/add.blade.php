@@ -79,7 +79,7 @@
 
                     <div class="col-md-6">
                         <x-inputField label='expected_close_date' labelCaption="Expected Close Date*"
-                        id="expected_close_date" type="text" name="expected_close_date"
+                        id="expected_close_date" type="date" name="expected_close_date"
                         placeholder="Enter Annual Revenue"  />
                     </div>
                 </div>

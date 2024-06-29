@@ -33,11 +33,16 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <label>Name*</label>
-                        <input class="form-control" label='user_name' labelCaption="Name*"
+                        <x-inputField class="form-control" label='user_name' labelCaption="Name*"
                         id="name" type="text" name="name"
-                        placeholder="Enter Name" value="{{ $record->name }}" />
+                        placeholder="Enter Name" :inputData="$record->name" />
                     </div>
+
+                    <?php
+                     $data['role_options']['userSelectedOption']['Key']= $record->role;
+                     $data['status_options']['userSelectedOption']['Key']= $record->status;
+                    ?>
+
                     <div class="col-md-6">
                         <x-selectField label='focus' className="eventClass" labelCaption="Role*"
                         name="role" defaultOption="Select Role" :options="$data['role_options']" />
@@ -46,14 +51,14 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        <x-inputField label='user_name' labelCaption="Email*"
+                        <x-inputField class="form-control" label='user_name' labelCaption="Email*"
                         id="email" type="email" name="email"
-                        placeholder="Enter Email" value="{{ $record->email }}"  />
+                        placeholder="Enter Email" :inputData="$record->email"  />
                     </div>
                     <div class="col-md-6">
                         <x-inputField label='user_name' labelCaption="Phone*"
                         id="phone" type="phone" name="phone"
-                        placeholder="Enter Phone" value="{{ $record->phone }}"  />
+                        placeholder="Enter Phone" :inputData="$record->phone"  />
                     </div>
                 </div>
 

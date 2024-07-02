@@ -60,6 +60,8 @@ Route::group(['middleware'=>['AdminAuth']],function(){
   Route::get('manage-organization/ajax', [OrganizationController::class,'listAjax'])->name('admin.manage-organization.ajax');
   Route::get('organization/add', [OrganizationController::class,'add'])->name('admin.organization.add');
   Route::post('organization/store', [OrganizationController::class,'store'])->name('admin.organization.store');
+  Route::get('organization/edit/{id}', [OrganizationController::class,'edit'])->name('admin.organization.edit');
+  Route::post('organization/update/{id}', [OrganizationController::class,'update'])->name('admin.organization.update');
 
 
   //Contacts

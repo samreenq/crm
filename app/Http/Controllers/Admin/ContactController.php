@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Lib\CustomLib;
 use App\Models\ModelCountry;
+use App\Models\ModelState;
+use App\Models\ModelCity;
 use Nnjeim\World\Models\Country;
 
 class ContactController extends Controller
@@ -125,13 +127,12 @@ class ContactController extends Controller
     /**
      * Fetch States by COuntry
      */
-    public function fetchState(Request $request){
-      // echo '<pre>'; print_r($request->all()); exit;
-       if ($request->country_id) {
-
+    public function fetchState(Request $request)
+    {
+       if ($request->country_id)
+       {
             $model_country = New ModelCountry();
             $country_code = $model_country->getColumnById($request->country_id,'iso2');
-
             $stateList = CustomLib::getStateList($country_code);
             $data['states'] = $stateList;
 
@@ -140,6 +141,26 @@ class ContactController extends Controller
              return response()->json(['error' => 'Country ID is missing.'], 400);
         }
 
+    }
+
+     /**
+     * Fetch States by COuntry
+     */
+    public function fetchCities(Request $request)
+    {    
+        $getStateCountryId = ModelState::getStateIdByName($request->all());
+
+        if($getStateCountryId){
+                $stateId = $getStateCountryId->id;
+                $countryId = $getStateCountryId->country_id;
+                $cityList = ModelCity::getByStateAndCountry($countryId,$stateId); 
+                $data['city'] = $cityList;
+            return response()->json($data);
+        }else{
+            return response()->json(['error' => 'data is missing']);
+        }
+        
+         
     }
 
 }

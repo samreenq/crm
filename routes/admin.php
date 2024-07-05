@@ -66,6 +66,7 @@ Route::group(['middleware'=>['AdminAuth']],function(){
   Route::get('contacts/add', [ContactController::class,'create'])->name('admin.contacts.add');
   Route::post('contacts/store', [ContactController::class,'store'])->name('admin.contacts.store');
   Route::post('contacts/getstates', [ContactController::class,'fetchState'])->name('admin.contacts.getstates');
+  Route::post('contacts/getcities',[ContactController::class,'fetchCities'])->name('admin.contacts.getcities');
 
   //Leads
   Route::get('leads', [LeadController::class,'index'])->name('admin.leads');

@@ -40,13 +40,13 @@ Class CustomLib {
             if ($world_countries_state->success) {
                 $countries_state = $world_countries_state->data;
                 $countries_state = json_decode($countries_state,true);
-
+                
                 if(count($countries_state) > 0){
                     foreach($countries_state as $states)
                     {
                         $state_data = $states['states'];
                             foreach($state_data as $key => $state)
-                            {
+                            { 
                                 $state_list[$state['id']] = $state['name'];
                             }
                     }

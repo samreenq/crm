@@ -15,22 +15,27 @@ class ModelCity extends Model
      *
      * @var string
      */
-    protected $table = 'countries';
+    protected $table = "cities";
     protected $primaryKey="id";
 
     /**
      * Get List by state and country
      */
-    public function getByStateAndCountry($country_id,$state_id)
+    public static function getByStateAndCountry($country_id,$state_id)
     {
-       $collection = $this->select('id','name')
+       $city_list = array();
+       $collection = self::select('id','name')
        ->where('country_id',$country_id)
         ->where('state_id',$state_id)
         ->get();
 
         if($collection){
-            $data = $collection->toArray();
-            return $data;
+            $city_data = $collection->toArray();
+            foreach($city_data as $key => $city)
+            {
+                $city_list[$city['id']] = $city['name'];
+            }
+            return $city_list;
        }
        return false;
     }

@@ -1,3 +1,6 @@
+<?php
+ //echo '<pre>'; print_r($data); exit;
+    ?>
 @extends('web/Admin/layout')
 
 @push('css')
@@ -149,7 +152,32 @@
                 });
             });
 
-            //on change state list cities
+            //on change statelist cities
+
+            $('#state_id').change(function(){
+                var s_name = $(this).val();
+                //alert(s_name)
+                $.ajax({
+                    url:"{{route('admin.contacts.getcities')}}",
+                    type: 'POST',
+                    dataType: 'json',
+                    data:{
+                        "state_name": s_name,
+                       _token: "{{csrf_token()}}"
+                    },
+                    success: function(response){
+                         $('#city_id').html('');
+                         $('#city_id').append('<option id="">Select City</option>')
+                            $.each(response.city, function(key, val){
+                                 $('#city_id').append('<option id="' + key + '">' + val + '</option>');
+                            });
+                    },
+                    error: function(){
+                         // Handle error
+                    }
+                });
+
+            });
         });
 
     </script>

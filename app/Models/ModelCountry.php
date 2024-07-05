@@ -22,10 +22,9 @@ class ModelCountry extends Model
        $collection = $this->select("$column_name")->where('id',$id)->first();
        if($collection){
             $data = $collection->toArray();
+
             return $data[$column_name];
        }
        return false;
-
     }
-
 }

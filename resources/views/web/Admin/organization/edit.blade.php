@@ -82,13 +82,13 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        <x-textareaField label='description' rows="5" cols="30" class="form-control" labelCaption="Description"
-                        placeholder="Enter Description" name="description" id="description" rows="5" :inputData="$record->description" />
+                        <x-textareaField label='description' class="form-control" labelCaption="Description"
+                        placeholder="Enter Description" name="description" id="description" :inputData="$record->description" />
                     </div>
 
                     <div class="col-md-6">
-                        <x-textareaField label='address' rows="5" cols="30" class="form-control" labelCaption="Description"
-                        placeholder="Enter Address" name="address" id="address" rows="5" :inputData="$record->address" />
+                        <x-textareaField label='address'  class="form-control" labelCaption="Address"
+                        placeholder="Enter Address" name="address" id="address" :inputData="$record->address" />
                     </div>
 
                 </div>

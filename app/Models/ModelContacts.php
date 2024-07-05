@@ -52,5 +52,14 @@ class ModelContacts extends Model
         return $return;
     }
 
+     /**
+     * Get by id
+     */
+    public function getById($id)
+    {
+        $record =  $this->where('id',$id)->first();
+        return $record;
+    }
+
 
 }

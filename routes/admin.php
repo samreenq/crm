@@ -77,5 +77,12 @@ Route::group(['middleware'=>['AdminAuth']],function(){
   Route::get('leads/add', [LeadController::class,'create'])->name('admin.leads.add');
   Route::post('leads/store', [LeadController::class,'store'])->name('admin.leads.store');
 
+
+
+
+
+  Route::get('contacts/edit/{id}', [ContactController::class,'edit'])->name('admin.contacts.edit');
+  Route::post('contacts/update/{id}', [ContactController::class,'update'])->name('admin.contacts.update');
+
 });
 

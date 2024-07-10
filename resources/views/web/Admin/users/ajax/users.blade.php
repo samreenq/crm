@@ -34,7 +34,7 @@
                     <td><span class="badge-primary">{{ $value['role'] }}</span></td>
                     <td><span class="badge-success">{{ $value['status'] }}</span></td>
                     <td>
-                        <a href="" id="edit-company-admin" data-id="{{ $value['id'] }}"
+                        <a href="{{ url('admin/users/edit/'.$value['id']) }}" data-id="{{ $value['id'] }}"
                             class="btn btn-primary"><i class="ti-pencil-alt"></i></a>
                         <a href="" id="delete-company-admin" data-id="{{ $value['id'] }}"
                             class="btn btn-danger"><i class="ti-trash"></i></a>

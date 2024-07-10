@@ -51,6 +51,8 @@ Route::group(['middleware'=>['AdminAuth']],function(){
   Route::get('manage-users/ajax', [UserController::class,'listUsers'])->name('admin.manage-users.ajax');
   Route::get('users/add', [UserController::class,'add'])->name('admin.users.add');
   Route::post('users/store', [UserController::class,'store'])->name('admin.users.store');
+  Route::get('users/edit/{id}', [UserController::class,'edit'])->name('admin.users.edit');
+  Route::post('users/update/{id}', [UserController::class,'update'])->name('admin.users.update');
 
 
   //Organization
@@ -58,6 +60,8 @@ Route::group(['middleware'=>['AdminAuth']],function(){
   Route::get('manage-organization/ajax', [OrganizationController::class,'listAjax'])->name('admin.manage-organization.ajax');
   Route::get('organization/add', [OrganizationController::class,'add'])->name('admin.organization.add');
   Route::post('organization/store', [OrganizationController::class,'store'])->name('admin.organization.store');
+  Route::get('organization/edit/{id}', [OrganizationController::class,'edit'])->name('admin.organization.edit');
+  Route::post('organization/update/{id}', [OrganizationController::class,'update'])->name('admin.organization.update');
 
 
   //Contacts
@@ -73,6 +77,13 @@ Route::group(['middleware'=>['AdminAuth']],function(){
   Route::get('manage-leads/ajax', [LeadController::class,'listAjax'])->name('admin.manage-leads.ajax');
   Route::get('leads/add', [LeadController::class,'create'])->name('admin.leads.add');
   Route::post('leads/store', [LeadController::class,'store'])->name('admin.leads.store');
+
+
+
+
+
+  Route::get('contacts/edit/{id}', [ContactController::class,'edit'])->name('admin.contacts.edit');
+  Route::post('contacts/update/{id}', [ContactController::class,'update'])->name('admin.contacts.update');
 
 });
 

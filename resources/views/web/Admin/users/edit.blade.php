@@ -26,17 +26,23 @@
             {{-- @include('include.es_msg') --}}
             @include('include.flash-message')
 
-            <form id="edit-company-form-by-admin" name="data_form" method="post" action="{{ route('admin.users.store') }}">
+            <form id="edit-company-form-by-admin" name="data_form" method="post" action="{{ route('admin.users.update', $record->id) }}">
                 @csrf
                 <div class="alert alert-danger error-msg" style="display:none">
                     <ul></ul>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <x-inputField label='user_name' labelCaption="Name*"
+                        <x-inputField class="form-control" label='user_name' labelCaption="Name*"
                         id="name" type="text" name="name"
-                        placeholder="Enter Name" />
+                        placeholder="Enter Name" :inputData="$record->name" />
                     </div>
+
+                    <?php
+                     $data['role_options']['userSelectedOption']['Key']= $record->role;
+                     $data['status_options']['userSelectedOption']['Key']= $record->status;
+                    ?>
+
                     <div class="col-md-6">
                         <x-selectField label='focus' className="eventClass" labelCaption="Role*"
                         name="role" defaultOption="Select Role" :options="$data['role_options']" />
@@ -45,31 +51,17 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        <x-inputField label='user_name' labelCaption="Email*"
+                        <x-inputField class="form-control" label='user_name' labelCaption="Email*"
                         id="email" type="email" name="email"
-                        placeholder="Enter Email"  />
+                        placeholder="Enter Email" :inputData="$record->email"  />
                     </div>
                     <div class="col-md-6">
                         <x-inputField label='user_name' labelCaption="Phone*"
                         id="phone" type="phone" name="phone"
-                        placeholder="Enter Phone"  />
+                        placeholder="Enter Phone" :inputData="$record->phone"  />
                     </div>
                 </div>
 
-                <div class="row">
-
-                    <div class="col-md-6">
-                        <x-inputField label='user_name' labelCaption="Password*"
-                        id="password" type="password" name="password"
-                        placeholder="Enter Password"  />
-                    </div>
-
-                    <div class="col-md-6">
-                        <x-inputField label='user_name' labelCaption="Confirm Password*"
-                        id="password_confirmation" type="password" name="password_confirmation "
-                        placeholder="Enter Password"  />
-                    </div>
-                </div>
 
                 <div class="row">
 
@@ -80,12 +72,12 @@
 
                 </div>
 
-                <input type="hidden" name="id" value="" />
+                <input type="hidden" name="id" value="{{ $record->id }}" />
 
                 <div class="col-sm-12 mt-4 text-center">
                     <div class="form-group">
                         <div class="form-control-wrap">
-                          <a href=""><button type="submit" class="btn btn-primary" id="update-ingredent">Create</button>
+                          <a href=""><button type="submit" class="btn btn-primary" id="update-ingredent">Update</button>
                           </a>
                         </div>
                     </div>

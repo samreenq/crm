@@ -12,6 +12,7 @@ class OrganizationController extends Controller
 {
 
     private $_model;
+    private $_module = 'organization';
 
     public function __construct()
     {
@@ -82,5 +83,29 @@ class OrganizationController extends Controller
             return redirect()->back()->with('error',$e->getMessage());
         }
 
+    }
+
+     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+        $pageTitle = "Edit ".$this->_module;
+        $data['status_options']['options'] = statusDropdown();
+        $data['type_options']['options'] = orgnizationTypeDropdown();
+
+        //Get User data by id
+        $record = $this->_model->getById($id);
+       // echo $record->name; exit;
+
+        return view("web.Admin.$this->_module.edit",[
+            "pageTitle"=> $pageTitle,
+            "data" => $data,
+            'record'=> $record
+        ]);
     }
 }

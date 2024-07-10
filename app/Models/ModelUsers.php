@@ -59,4 +59,29 @@ class ModelUsers extends Model
         }
         return $return;
     }
+
+    /**
+     * Get by id
+     */
+    public function getById($id)
+    {
+        $record =  $this->where('id',$id)->first();
+        return $record;
+    }
+
+    /**
+     * Update Record by id
+     */
+    public function updateRecord($data)
+    {
+        $record = $this->find($data['id']);
+        $record->name = $data['name'];
+        $record->email = $data['email'];
+        $record->phone = $data['phone'];
+        $record->role = $data['role'];
+        $record->status = $data['status'];
+         $record->save();
+         return true;
+
+    }
 }

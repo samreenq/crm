@@ -49,7 +49,7 @@ class LeadController extends Controller
     public function create()
     {
         //
-        $pageTitle = "Add ".$this->_module;
+        $pageTitle = "Add Lead";
         $data['status_options']['options'] = statusDropdown();
         $data['gender_options']['options'] = genderDropdown();
         $data['contact_options']['options'] = ModelContacts::dropdownList();

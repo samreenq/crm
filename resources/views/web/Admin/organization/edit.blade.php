@@ -26,7 +26,13 @@
             {{-- @include('include.es_msg') --}}
             @include('include.flash-message')
 
-            <form id="edit-company-form-by-admin" name="data_form" method="post" action="{{ route('admin.leads.store') }}">
+            <?php
+            $data['type_options']['userSelectedOption']['Key']= $record->type;
+            $data['status_options']['userSelectedOption']['Key']= $record->status;
+           ?>
+
+
+            <form id="edit-company-form-by-admin" name="data_form" method="post" action="{{ route('admin.organization.update',$record->id) }}">
                 @csrf
                 <div class="alert alert-danger error-msg" style="display:none">
                     <ul></ul>
@@ -35,61 +41,66 @@
                     <div class="col-md-6">
                         <x-inputField label='name' labelCaption="Name*"
                         id="name" type="text" name="name"
-                        placeholder="Enter Name" />
+                        placeholder="Enter Name" :inputData="$record->name"  />
                     </div>
+
                     <div class="col-md-6">
-                        <x-selectField label='focus' className="eventClass" labelCaption="Type*"
-                        name="type" defaultOption="Select Type" :options="$data['type_options']" />
+                        <x-selectField label='focus' className="eventClass" labelCaption="Organization Type*"
+                         name="type" defaultOption="Select organization Type" :options="$data['type_options']" />
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6">
-                        <x-selectField label='focus' className="eventClass" labelCaption="Contact*"
-                         name="contact_id" id="contact_id" defaultOption="Select contact" :options="$data['contact_options']" />
+                        <x-inputField label='email' labelCaption="Email*"
+                        id="email" type="email" name="email"
+                        placeholder="Enter Email" :inputData="$record->email"   />
                     </div>
-
                     <div class="col-md-6">
-                        <x-selectField label='focus' className="eventClass" labelCaption="Organization*"
-                         name="organization_id" id="Organization_id" defaultOption="Select organization" :options="$data['organization_options']" />
+                        <x-inputField label='phne' labelCaption="Phone*"
+                        id="phone" type="phone" name="phone"
+                        placeholder="Enter Phone" :inputData="$record->phone"   />
                     </div>
                 </div>
 
+
                 <div class="row">
+
                     <div class="col-md-6">
-                        <x-selectField label='focus' className="eventClass" labelCaption="Source*"
-                        name="source" defaultOption="Select Source" :options="$data['source_options']" />
+                        <x-inputField label='no_of_employees' labelCaption="No of Employees*"
+                        id="no_of_employees" type="text" name="no_of_employees"
+                        placeholder="Enter No of Employees" :inputData="$record->no_of_employees"  />
                     </div>
+
                     <div class="col-md-6">
                         <x-inputField label='annual_revenue' labelCaption="Annual Revenue*"
                         id="annual_revenue" type="text" name="annual_revenue"
-                        placeholder="Enter Annual Revenue"  />
-                    </div>
-
-                </div>
-
-
-                <div class="row">
-
-                    <div class="col-md-6">
-                        <label for="name">Description:</label>
-                        <textarea id="txtArea" rows="5" cols="30" class="form-control"
-                        placeholder="Enter description" name="description" id="description" ></textarea>
-                    </div>
-
-                    <div class="col-md-6">
-                        <x-inputField label='expected_close_date' labelCaption="Expected Close Date*"
-                        id="expected_close_date" type="date" name="expected_close_date"
-                        placeholder="Enter Annual Revenue"  />
+                        placeholder="Enter Annual Revenue" :inputData="$record->annual_revenue"  />
                     </div>
                 </div>
 
 
                 <div class="row">
+                    <div class="col-md-6">
+                        <x-textareaField label='description' class="form-control" labelCaption="Description"
+                        placeholder="Enter Description" name="description" id="description" :inputData="$record->description" />
+                    </div>
 
+                    <div class="col-md-6">
+                        <x-textareaField label='address'  class="form-control" labelCaption="Address"
+                        placeholder="Enter Address" name="address" id="address" :inputData="$record->address" />
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <x-inputField label='no_of_employees' labelCaption="Profile Link"
+                        id="profile_link" type="text" name="profile_link"
+                        placeholder="Enter Profile Link" :inputData="$record->profile_link" />
+                    </div>
                     <div class="col-md-6">
                         <x-selectField label='focus' className="eventClass" labelCaption="Status*"
-                        name="status" defaultOption="Select Status" :options="$data['status_options']" />
+                        name="status" defaultOption="Select Status*" :options="$data['status_options']" />
                     </div>
                 </div>
 
@@ -98,7 +109,7 @@
                 <div class="col-sm-12 mt-4 text-center">
                     <div class="form-group">
                         <div class="form-control-wrap">
-                          <a href=""><button type="submit" class="btn btn-primary" id="update-ingredent">Create</button>
+                          <a href=""><button type="submit" class="btn btn-primary" id="update-ingredent">Update</button>
                           </a>
                         </div>
                     </div>

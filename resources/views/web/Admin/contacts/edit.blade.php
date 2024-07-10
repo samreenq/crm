@@ -1,6 +1,3 @@
-<?php
- //echo '<pre>'; print_r($data); exit;
-    ?>
 @extends('web/Admin/layout')
 
 @push('css')
@@ -29,7 +26,16 @@
             {{-- @include('include.es_msg') --}}
             @include('include.flash-message')
 
-            <form id="edit-company-form-by-admin" name="data_form" method="post" action="{{ route('admin.contacts.store') }}">
+            <?php
+
+            $data['user_options']['userSelectedOption']['Key']= $record->user_id;
+            $data['country_options']['userSelectedOption']['Key']= $record->country_id;
+            $data['organization_options']['userSelectedOption']['Key']= $record->organization_id;
+            $data['status_options']['userSelectedOption']['Key']= $record->status;
+            $data['gender_options']['userSelectedOption']['Key']= $record->gender;
+           ?>
+
+            <form id="edit-company-form-by-admin" name="data_form" method="post" action="{{ route('admin.contacts.update',$record->id) }}">
                 @csrf
                 <div class="alert alert-danger error-msg" style="display:none">
                     <ul></ul>
@@ -38,7 +44,7 @@
                     <div class="col-md-6">
                         <x-inputField label='name' labelCaption="Name*"
                         id="name" type="text" name="name"
-                        placeholder="Enter Name" />
+                        placeholder="Enter Name" / :inputData="$record->name">
                     </div>
                 </div>
 
@@ -50,7 +56,7 @@
 
                     <div class="col-md-6">
                         <x-selectField label='focus' className="eventClass" labelCaption="Organization*"
-                         name="type" defaultOption="Select organization" :options="$data['organization_options']" />
+                         name="organization_id" defaultOption="Select organization" :options="$data['organization_options']" />
                     </div>
                 </div>
 
@@ -65,7 +71,6 @@
                         placeholder="Enter Date Of Birth"  />
                     </div>
                 </div>
-
 
                 <div class="row">
 
@@ -90,15 +95,14 @@
                     <div class="col-md-6">
                         <x-inputField label='zip_code' labelCaption="Zip Cde"
                         id="zip_code" type="text" name="zip_code"
-                        placeholder="Enter Zip Code"  />
+                        placeholder="Enter Zip Code" :inputData="$record->zip_code"  />
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6">
-                        <label for="name">Address:</label>
-                        <textarea id="txtArea" rows="5" cols="30" class="form-control"
-                        placeholder="Enter Address" name="address" id="address" ></textarea>
+                        <x-textareaField label='address'  class="form-control" labelCaption="Address"
+                        placeholder="Enter Address" name="address" id="address" :inputData="$record->address" />
                     </div>
                     <div class="col-md-6">
                         <x-selectField label='focus' className="eventClass" labelCaption="Status*"
@@ -111,7 +115,7 @@
                 <div class="col-sm-12 mt-4 text-center">
                     <div class="form-group">
                         <div class="form-control-wrap">
-                          <a href=""><button type="submit" class="btn btn-primary" id="update-ingredent">Create</button>
+                          <a href=""><button type="submit" class="btn btn-primary" id="update-ingredent">Update</button>
                           </a>
                         </div>
                     </div>
@@ -152,32 +156,7 @@
                 });
             });
 
-            //on change statelist cities
-
-            $('#state_id').change(function(){
-                var s_name = $(this).val();
-                //alert(s_name)
-                $.ajax({
-                    url:"{{route('admin.contacts.getcities')}}",
-                    type: 'POST',
-                    dataType: 'json',
-                    data:{
-                        "state_name": s_name,
-                       _token: "{{csrf_token()}}"
-                    },
-                    success: function(response){
-                         $('#city_id').html('');
-                         $('#city_id').append('<option id="">Select City</option>')
-                            $.each(response.city, function(key, val){
-                                 $('#city_id').append('<option id="' + key + '">' + val + '</option>');
-                            });
-                    },
-                    error: function(){
-                         // Handle error
-                    }
-                });
-
-            });
+            //on change state list cities
         });
 
     </script>

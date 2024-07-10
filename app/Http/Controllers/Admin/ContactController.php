@@ -61,8 +61,6 @@ class ContactController extends Controller
         $data['user_options']['options'] = ModelUsers::dropdownList();
         $data['organization_options']['options'] = ModelOrganization::dropdownList();
         $data['country_options']['options'] = CustomLib::countryList();
-        $data['state_options']['options'] = CustomLib::countryList();
-        //echo '<pre>'; print_r($data); exit;
 
         return view("web.Admin.$this->_module.add")->with("pageTitle", $pageTitle)
         ->with('data',$data);
@@ -99,6 +97,19 @@ class ContactController extends Controller
     public function edit($id)
     {
         //
+        $pageTitle = "Edit ".$this->_module;
+        $data['status_options']['options'] = statusDropdown();
+        $data['gender_options']['options'] = genderDropdown();
+        $data['user_options']['options'] = ModelUsers::dropdownList();
+        $data['organization_options']['options'] = ModelOrganization::dropdownList();
+        $data['country_options']['options'] = CustomLib::countryList();
+
+         //Get User data by id
+         $record = $this->_model->getById($id);
+
+        return view("web.Admin.$this->_module.edit")->with("pageTitle", $pageTitle)
+        ->with('data',$data)
+        ->with('record',$record);
     }
 
     /**

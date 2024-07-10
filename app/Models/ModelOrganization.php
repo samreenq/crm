@@ -59,4 +59,13 @@ class ModelOrganization extends Model
         $id = $this->save();
         return $id;
     }
+
+     /**
+     * Get by id
+     */
+    public function getById($id)
+    {
+        $record =  $this->where('id',$id)->first();
+        return $record;
+    }
 }

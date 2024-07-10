@@ -26,5 +26,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        app()->useLangPath(base_path('lang'));
     }
 }

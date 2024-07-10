@@ -55,7 +55,7 @@ return [
 		'cities' => true,
 		'timezones' => true,
 		'currencies' => true,
-		'languages' => true,
+		'languages' => false,
 	],
 	/*
 	|--------------------------------------------------------------------------

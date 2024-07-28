@@ -13,6 +13,7 @@ use App\Models\ModelCountry;
 use App\Models\ModelState;
 use App\Models\ModelCity;
 use Nnjeim\World\Models\Country;
+use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
@@ -74,7 +75,34 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //echo '<pre>'; print_r($request->all()); exit;
+        $validator = Validator::make($request->all(), [
+            'name'          => 'required|max:255',
+            'user_id'       => 'required|integer',
+            'organization_id'=> 'required|integer',
+            'gender'        => 'required|in:"male","female"',
+            'date_of_birth' => 'required|date',
+            'country_id'    => 'required|integer',
+            'state_id'      => 'required',
+            'city_id'       => 'required',
+            'zip_code'      => 'required|integer',
+            'address'       => 'required',
+            'status'        => 'required|in:"active","inactive"',
+        ]);
+ 
+        if ($validator->fails()) {
+            return redirect()->route('admin.contacts.add')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+ 
+        // Retrieve the validated input...
+        $validated = $validator->validated();
+        //echo '<pre>'; print_r($validated); exit;
+
+        $record = ModelContacts::addContact($request->all());
+        
+        // return redirect
     }
 
     /**

@@ -45,12 +45,12 @@
                 <div class="row">
                     <div class="col-md-6">
                         <x-selectField label='focus' className="eventClass" labelCaption="User*"
-                         name="type" defaultOption="Select user" :options="$data['user_options']" />
+                         name="user_id" defaultOption="Select user" :options="$data['user_options']" />
                     </div>
 
                     <div class="col-md-6">
                         <x-selectField label='focus' className="eventClass" labelCaption="Organization*"
-                         name="type" defaultOption="Select organization" :options="$data['organization_options']" />
+                         name="organization_id" defaultOption="Select organization" :options="$data['organization_options']" />
                     </div>
                 </div>
 

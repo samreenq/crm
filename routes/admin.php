@@ -77,8 +77,8 @@ Route::group(['middleware'=>['AdminAuth']],function(){
   Route::get('manage-leads/ajax', [LeadController::class,'listAjax'])->name('admin.manage-leads.ajax');
   Route::get('leads/add', [LeadController::class,'create'])->name('admin.leads.add');
   Route::post('leads/store', [LeadController::class,'store'])->name('admin.leads.store');
-
-
+  Route::get('leads/edit/{id}', [LeadController::class,'edit'])->name('admin.leads.edit');
+  Route::post('leads/update/{id}', [LeadController::class,'update'])->name('admin.leads.update');
 
 
 

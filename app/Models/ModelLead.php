@@ -39,4 +39,13 @@ class ModelLead extends Model
     {
         return $this->belongsTo('App\Models\ModelOrganization','organization_id', 'id');
     }
+
+     /**
+     * Get by id
+     */
+    public function getById($id)
+    {
+        $record =  $this->where('id',$id)->first();
+        return $record;
+    }
 }

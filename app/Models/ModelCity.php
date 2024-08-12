@@ -40,5 +40,12 @@ class ModelCity extends Model
        return false;
     }
 
+    public static function getByStateId($cid,$sid)
+    {
+        $getCityId = self::where('country_id',$cid)
+                 ->where('state_id',$sid)->first();
+        return $getCityId;
+    }
+
 
 }

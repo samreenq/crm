@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->enum('type',['notes','call','email','meeting'])->default('notes');
             $table->string('subject');
             $table->text('description')->nullable();

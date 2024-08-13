@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\ModelActivities;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Models\ModelContacts;
+use App\Models\ModelOrganization;
 
 class ActivitiesController extends Controller
 {
@@ -47,6 +49,14 @@ class ActivitiesController extends Controller
     public function create()
     {
         //
+         $pageTitle = "Add Activity";
+         $data['status_options']['options'] = statusDropdown();
+         $data['contact_options']['options'] = ModelContacts::dropdownList();
+         $data['organization_options']['options'] = ModelOrganization::dropdownList();
+         $data['type_options']['options'] = activitiesTypeDropdown();
+
+         return view("web.Admin.$this->_module.add")->with("pageTitle", $pageTitle)
+         ->with('data',$data);
     }
 
     /**

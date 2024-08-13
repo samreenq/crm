@@ -199,6 +199,20 @@ if(!function_exists('cD'))
         }
     }
 
-
+    if(!function_exists('activitiesTypeDropdown'))
+    {
+        /**
+         * Status Dropdown values
+         */
+        function activitiesTypeDropdown()
+        {
+           return array(
+            'notes' => 'Notes',
+            'call' => 'Call',
+            'email' => 'Email',
+            'meeting' => 'Meeting'
+            );
+        }
+    }
 
 ?>

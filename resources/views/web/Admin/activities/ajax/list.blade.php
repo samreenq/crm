@@ -11,6 +11,7 @@
     <thead>
         <tr>
             <th style="max-width:50px">Sr. No.</th>
+            <th>Title</th>
             <th>type</th>
             <th>Contact Name</th>
             <th style="max-width:100px">Organization</th>
@@ -31,6 +32,7 @@
             @foreach ($data as $value)
                 <tr>
                     <td>{{ $serial++ }}</td>
+                    <td>{{ $value['title'] }}</td>
                     <td>{{ $value['type'] }}</td>
                     <td>{{ $value['contact']['name'] }}</td>
                     <td>{{ $value['organization']['name'] }}</td>

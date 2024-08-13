@@ -26,16 +26,16 @@
             {{-- @include('include.es_msg') --}}
             @include('include.flash-message')
 
-            <form id="edit-company-form-by-admin" name="data_form" method="post" action="{{ route('admin.leads.store') }}">
+            <form id="edit-company-form-by-admin" name="data_form" method="post" action="{{ route('admin.activities.store') }}">
                 @csrf
                 <div class="alert alert-danger error-msg" style="display:none">
                     <ul></ul>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <x-inputField label='name' labelCaption="Name*"
-                        id="name" type="text" name="name"
-                        placeholder="Enter Name" />
+                        <x-inputField label='title' labelCaption="Title*"
+                        id="title" type="text" name="title"
+                        placeholder="Enter Title" />
                     </div>
                     <div class="col-md-6">
                         <x-selectField label='focus' className="eventClass" labelCaption="Type*"
@@ -56,16 +56,17 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6">
-                        <x-selectField label='focus' className="eventClass" labelCaption="Source*"
-                        name="source" defaultOption="Select Source" :options="$data['source_options']" />
-                    </div>
-                    <div class="col-md-6">
-                        <x-inputField label='annual_revenue' labelCaption="Annual Revenue*"
-                        id="annual_revenue" type="text" name="annual_revenue"
-                        placeholder="Enter Annual Revenue"  />
-                    </div>
 
+                    <div class="col-md-6">
+                        <x-inputField label='subject' labelCaption="Subject*"
+                        id="subject" type="text" name="subject"
+                        placeholder="Enter Subject"  />
+                    </div>
+                    <div class="col-md-6">
+                        <x-inputField label='expected_close_date' labelCaption="Date Time*"
+                        id="date_time" type="date" name="date_time"
+                        placeholder="Enter Date Time"  />
+                    </div>
                 </div>
 
 
@@ -76,21 +77,15 @@
                         <textarea id="txtArea" rows="5" cols="30" class="form-control"
                         placeholder="Enter description" name="description" id="description" ></textarea>
                     </div>
-
-                    <div class="col-md-6">
-                        <x-inputField label='expected_close_date' labelCaption="Expected Close Date*"
-                        id="expected_close_date" type="date" name="expected_close_date"
-                        placeholder="Enter Annual Revenue"  />
-                    </div>
-                </div>
-
-
-                <div class="row">
-
                     <div class="col-md-6">
                         <x-selectField label='focus' className="eventClass" labelCaption="Status*"
                         name="status" defaultOption="Select Status" :options="$data['status_options']" />
                     </div>
+
+                </div>
+
+
+
                 </div>
 
                 <input type="hidden" name="id" value="" />

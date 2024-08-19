@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ActivitiesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ContactController;
@@ -84,6 +85,15 @@ Route::group(['middleware'=>['AdminAuth']],function(){
 
   Route::get('contacts/edit/{id}', [ContactController::class,'edit'])->name('admin.contacts.edit');
   Route::post('contacts/update/{id}', [ContactController::class,'update'])->name('admin.contacts.update');
+
+
+
+
+
+  Route::get('activities', [ActivitiesController::class,'index'])->name('admin.activities');
+  Route::get('manage-activities/ajax', [ActivitiesController::class,'listAjax'])->name('admin.manage-activities.ajax');
+  Route::get('activities/add', [ActivitiesController::class,'create'])->name('admin.activities.add');
+  Route::post('activities/store', [ActivitiesController::class,'store'])->name('admin.activities.store');
 
 });
 

@@ -54,5 +54,16 @@
         })
     }
 
+    function manageActivities()
+    {
+        dataUrl = "{{ route('admin.manage-activities.ajax') }}";
+        $.ajax({
+            url: dataUrl,
+            success: function(data) {
+                $('#manage-activities').html(data);
+                hideExportsBtn();
+            }
+        })
+    }
 
 </script>

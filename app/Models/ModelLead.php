@@ -18,6 +18,11 @@ class ModelLead extends Model
     protected $primaryKey="id";
     use SoftDeletes;
 
+    protected $fillable = [
+         'name', 'description', 'annual_revenue', 'source', 'type', 'contact_id', 'organization_id', 
+         'expected_close_date','status' , 'created_at','updated_at','deleted_at'
+    ];
+
     public function list()
     {
         $fetchData = self::with('contact')->with('organization')->get()->toArray();
@@ -47,5 +52,38 @@ class ModelLead extends Model
     {
         $record =  $this->where('id',$id)->first();
         return $record;
+    }
+
+    public static function addLeads($data)
+    {
+        $createRecord = self::create([
+            'name'               =>  $data['name'],
+            'description'        =>  $data['description'],
+            'annual_revenue'     =>  $data['annual_revenue'],
+            'source'             =>  $data['source'],
+            'type'               =>  $data['type'],
+            'contact_id'         =>  $data['contact_id'],
+            'organization_id'    =>  $data['organization_id'],
+            'expected_close_date'=>  $data['expected_close_date'],
+            'status'             =>  $data['status']
+        ]);
+        return $createRecord;
+    }
+
+    public static function updateRecord($data, $id)
+    {
+        $updateRecord = self::where('id',$id)->update([
+            'name'               =>  $data['name'],
+            'description'        =>  $data['description'],
+            'annual_revenue'     =>  $data['annual_revenue'],
+            'source'             =>  $data['source'],
+            'type'               =>  $data['type'],
+            'contact_id'         =>  $data['contact_id'],
+            'organization_id'    =>  $data['organization_id'],
+            'expected_close_date'=>  $data['expected_close_date'],
+            'status'             =>  $data['status']
+        ]);
+        // echo '<pre>'; print_r($updateRecord); exit;
+        return $updateRecord;
     }
 }

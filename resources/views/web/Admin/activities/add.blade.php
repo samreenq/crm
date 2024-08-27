@@ -63,7 +63,7 @@
                         placeholder="Enter Subject"  />
                     </div>
                     <div class="col-md-6">
-                        <x-inputField label='expected_close_date' labelCaption="Date Time*"
+                        <x-inputField label='expected_close_date' labelCaption="Date Time"
                         id="date_time" type="datetime-local" name="date_time"
                         placeholder="Enter Date Time"  />
                     </div>

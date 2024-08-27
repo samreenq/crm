@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\ModelContacts;
 use App\Models\ModelOrganization;
+use Exception;
+use Illuminate\Support\Facades\Validator;
 
 class ActivitiesController extends Controller
 {
@@ -68,6 +70,30 @@ class ActivitiesController extends Controller
     public function store(Request $request)
     {
         //
+        try{
+            $validator = Validator::make($request->all(),
+            [
+                'title' => 'required|unique:activities|string|max:100',
+                'type' => 'required',
+                'contact_id'        => 'required',
+                'organization_id'   => 'required',
+                'subject' => 'required|string',
+                'status' => 'required'
+            ]);
+
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
+
+              //Save data in model
+            $data =  $this->_model->createRecord($request->all());
+            if($data)
+            return redirect('admin/activities')->with('success','Activity has been added successfully');
+        }
+        catch(Exception $e){
+            return redirect()->back()->with('error',$e->getMessage());
+        }
+
     }
 
     /**

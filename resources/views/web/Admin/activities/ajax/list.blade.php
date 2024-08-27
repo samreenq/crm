@@ -17,7 +17,6 @@
             <th style="max-width:100px">Organization</th>
             <th style="max-width:100px">Subject</th>
             <th style="max-width:100px">Priority</th>
-            <th style="max-width:100px">Date Time</th>
             <th style="max-width:100px">Status</th>
             <th style="max-width:100px">Action</th>
 
@@ -45,7 +44,6 @@
                             @php $priority_badge = 'danger';  @endphp
                             @endif
                     <td><span class="badge-{{ $priority_badge }}">{{ $value['priority'] }}</span></td>
-                    <td>{{ $value['date_time'] }}</td>
                     <td><span class="badge-success">{{ $value['status'] }}</span></td>
                     <td>
                         <a href="{{ url('admin/activities/edit/'.$value['id']) }}"  data-id="{{ $value['id'] }}"

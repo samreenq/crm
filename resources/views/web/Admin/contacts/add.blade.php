@@ -76,7 +76,7 @@
 
                     <div class="col-md-6">
                         <x-selectField label='focus' className="eventClass" labelCaption="State"
-                        name="state_id"  id="state_id" defaultOption="Select state" :options="array()" />
+                        name="state_name"  id="state_id" defaultOption="Select state" :options="array()" />
                     </div>
                 </div>
 
@@ -84,7 +84,7 @@
 
                     <div class="col-md-6">
                         <x-selectField label='focus' className="eventClass" labelCaption="City*"
-                        name="city_id" id="city_id" defaultOption="Select city" :options="array()" />
+                        name="city_name" id="city_id" defaultOption="Select city" :options="array()" />
                     </div>
 
                     <div class="col-md-6">

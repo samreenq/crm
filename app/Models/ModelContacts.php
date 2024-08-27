@@ -13,7 +13,7 @@ class ModelContacts extends Model
     protected $primaryKey="id";
     
     protected $fillable = [
-        'name','user_id','organization_id','gender','date_of_birth','country_id','zipcode','status',
+        'name','user_id','organization_id','gender','date_of_birth','address','country_id','city_id','state_id','zipcode','status',
         'created_at','updated_at','deleted_at'
     ];
 
@@ -68,9 +68,8 @@ class ModelContacts extends Model
        /**
      * Create new record
      */
-    public static function addContact($data)
+    public static function addContact($data,$sccId)
     {
-        //echo '<pre>'; print_r($data); exit;
         $createRecord = self::create([
             'name'  =>  $data['name'],
             'user_id'  =>  $data['user_id'],
@@ -78,12 +77,13 @@ class ModelContacts extends Model
             'gender'  =>  $data['gender'],
             'date_of_birth'  =>  $data['date_of_birth'],
             'country_id'  =>  $data['country_id'],
-            // 'state_id'  =>  $data['state_id'],
-            // 'city_id'  =>  $data['city_id'],
-            'zip_code'  =>  $data['zip_code'],
+            'state_id'  =>  $sccId['state_id'],
+            'city_id'  =>  $sccId['id'],
+            'zipcode'  =>  $data['zip_code'],
             'address'  =>  $data['address'],
             'status'  =>  $data['status'],
         ]);
+        //echo '<pre>'; print_r($createRecord); exit;
         return $createRecord;
     }
 }

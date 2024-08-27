@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use App\Models\ModelContacts;
 use App\Models\ModelLead;
@@ -69,7 +70,38 @@ class LeadController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            $validator = Validator::make($request->all(), [
+                'name'              => 'required|max:255',
+                'description'       => 'required',
+                'annual_revenue'    => 'required',
+                // 'annual_revenue'    => 'required|decimal:15,2',
+                'source'            => 'required|in:"email","phone","contact_form","direct"',
+                'type'              => 'required|in:"new_business","existing_business"',
+                'contact_id'        => 'required',
+                'organization_id'   => 'required',
+                'expected_close_date'=> 'required|date',
+                'status'            => 'required|in:"active","inactive"',
+            ]);
+            if ($validator->fails()) {
+                return redirect()->route('admin.leads.add')
+                            ->withErrors($validator)
+                            ->withInput();
+            }
+            // Retrieve the validated input...
+            $validated = $validator->validated();
+     
+             //echo '<pre>'; print_r($validated); exit;
+            $addRecord = ModelLead::addLeads($request->all());
+
+            //echo '<pre>'; print_r($addRecord); exit;
+        
+            //return redirect
+            return redirect('admin/leads')->with('success','Contact has been Added Successfully');
+        }
+        catch(Exception $e){
+            return redirect()->back()->with('error',$e->getMessage());
+        }
     }
 
     /**
@@ -117,7 +149,38 @@ class LeadController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try{
+            $validator = Validator::make($request->all(), [
+                'name'              => 'required|max:255',
+                'description'       => 'required',
+                'annual_revenue'    => 'required',
+                // 'annual_revenue'    => 'required|decimal:15,2',
+                'source'            => 'required|in:"email","phone","contact_form","direct"',
+                'type'              => 'required|in:"new_business","existing_business"',
+                'contact_id'        => 'required',
+                'organization_id'   => 'required',
+                'expected_close_date'=> 'required|date',
+                'status'            => 'required|in:"active","inactive"',
+            ]);
+            if ($validator->fails()) {
+                return redirect()->route('admin.leads.edit')
+                            ->withErrors($validator)
+                            ->withInput();
+            }
+            // Retrieve the validated input...
+            $validated = $validator->validated();
+     
+             //echo '<pre>'; print_r($validated); exit;
+            $updateRecord = ModelLead::updateRecord($request->all(),$id);
+
+            // echo '<pre>'; print_r($updateRecord ); exit;
+        
+            // return redirect
+            return redirect('admin/leads')->with('success','Leads has been Updated Successfully');
+        }
+        catch(Exception $e){
+            return redirect()->back()->with('error',$e->getMessage());
+        }
     }
 
     /**

@@ -75,34 +75,40 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //echo '<pre>'; print_r($request->all()); exit;
-        $validator = Validator::make($request->all(), [
-            'name'          => 'required|max:255',
-            'user_id'       => 'required|integer',
-            'organization_id'=> 'required|integer',
-            'gender'        => 'required|in:"male","female"',
-            'date_of_birth' => 'required|date',
-            'country_id'    => 'required|integer',
-            'state_id'      => 'required',
-            'city_id'       => 'required',
-            'zip_code'      => 'required|integer',
-            'address'       => 'required',
-            'status'        => 'required|in:"active","inactive"',
-        ]);
- 
-        if ($validator->fails()) {
-            return redirect()->route('admin.contacts.add')
-                        ->withErrors($validator)
-                        ->withInput();
-        }
- 
-        // Retrieve the validated input...
-        $validated = $validator->validated();
-        //echo '<pre>'; print_r($validated); exit;
+        try{
+            $validator = Validator::make($request->all(), [
+                'name'          => 'required|max:255',
+                'user_id'       => 'required|integer',
+                'organization_id'=> 'required|integer',
+                'gender'        => 'required|in:"male","female"',
+                'date_of_birth' => 'required|date',
+                'country_id'    => 'required|integer',
+                'state_name'      => 'required',
+                'city_name'       => 'required',
+                'zip_code'      => 'required|integer',
+                'address'       => 'required',
+                'status'        => 'required|in:"active","inactive"',
+            ]);
+     
+            if ($validator->fails()) {
+                return redirect()->route('admin.contacts.add')
+                            ->withErrors($validator)
+                            ->withInput();
+            }
+            // Retrieve the validated input...
+            $validated = $validator->validated();
+    
+            //get State and City ID
+            $getStCtId = ModelState::getStateIdByName($request->state_name);
+            $getStCityCountryId = ModelCity::getByStateId($getStCtId->country_id,$getStCtId->id);
+            $addRecord = ModelContacts::addContact($request->all(),$getStCityCountryId);
 
-        $record = ModelContacts::addContact($request->all());
-        
-        // return redirect
+            // return redirect
+            return redirect('admin/contacts')->with('success','Contact has been added successfully');
+        }
+        catch(Exception $e){
+            return redirect()->back()->with('error',$e->getMessage());
+        }
     }
 
     /**

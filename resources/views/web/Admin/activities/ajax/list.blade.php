@@ -1,5 +1,5 @@
 <div class="col-md-12 text-center mb-3 mt-3" style="width:100%; background-color:#1967a9;color:white;padding:5px;">
-    <h3>Manage activities</h3>
+    <h3>Manage Activities</h3>
 
 </div>
 

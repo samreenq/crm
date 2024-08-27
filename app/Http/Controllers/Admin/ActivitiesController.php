@@ -26,7 +26,7 @@ class ActivitiesController extends Controller
     public function index()
     {
         //
-        $pageTitle = "Manage ". Str::camel($this->_module);
+        $pageTitle = "Manage Activities";
         return view("web.Admin.$this->_module.view")->with("pageTitle", $pageTitle);
     }
 

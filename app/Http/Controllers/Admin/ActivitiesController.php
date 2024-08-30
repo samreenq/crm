@@ -116,6 +116,19 @@ class ActivitiesController extends Controller
     public function edit($id)
     {
         //
+         $pageTitle = "Edit Activity";
+         $data['status_options']['options'] = statusDropdown();
+         $data['gender_options']['options'] = genderDropdown();
+         $data['contact_options']['options'] = ModelContacts::dropdownList();
+         $data['organization_options']['options'] = ModelOrganization::dropdownList();
+         $data['type_options']['options'] = activitiesTypeDropdown();
+
+        //Get User data by id
+        $record = $this->_model->getById($id);
+
+        return view("web.Admin.$this->_module.edit")->with("pageTitle", $pageTitle)
+        ->with('data',$data)
+        ->with('record',$record);
     }
 
     /**

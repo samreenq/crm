@@ -73,8 +73,8 @@
 
                     <div class="col-md-6">
                         <label for="name">Description:</label>
-                        <textarea id="txtArea" rows="5" cols="30" class="form-control"
-                        placeholder="Enter description" name="description" id="description" ></textarea>
+                        <x-textareaField label='description'  class="form-control" labelCaption="Description"
+                        placeholder="Enter Description" name="description" id="description" />
                     </div>
 
                     <div class="col-md-6">

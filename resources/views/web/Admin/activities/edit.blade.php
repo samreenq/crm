@@ -30,21 +30,20 @@
                 $data['contact_options']['userSelectedOption']['Key']= $record->contact_id;
                 $data['organization_options']['userSelectedOption']['Key']= $record->organization_id;
                 $data['status_options']['userSelectedOption']['Key']= $record->status;
-                $data['source_options']['userSelectedOption']['Key']= $record->source;
 
-                $expected_close_date = date('m/d/Y',strtotime($record->expected_close_date));
+                $date_time = date('m/d/Y h:i A',strtotime($record->date_time));
             @endphp
 
-            <form id="edit-company-form-by-admin" name="data_form" method="post" action="{{ route('admin.leads.update',$record->id) }}">
+            <form id="edit-company-form-by-admin" name="data_form" method="post" action="{{ route('admin.activities.update',$record->id) }}">
                 @csrf
                 <div class="alert alert-danger error-msg" style="display:none">
                     <ul></ul>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <x-inputField label='name' labelCaption="Name*"
-                        id="name" type="text" name="name"
-                        placeholder="Enter Name" :inputData="$record->name" />
+                        <x-inputField label='title' labelCaption="Title*"
+                        id="title" type="text" name="title"
+                        placeholder="Enter Title" :inputData="$record->title" />
                     </div>
                     <div class="col-md-6">
                         <x-selectField label='focus' className="eventClass" labelCaption="Type*"
@@ -65,41 +64,34 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6">
-                        <x-selectField label='focus' className="eventClass" labelCaption="Source*"
-                        name="source" defaultOption="Select Source" :options="$data['source_options']" />
-                    </div>
-                    <div class="col-md-6">
-                        <x-inputField label='annual_revenue' labelCaption="Annual Revenue*"
-                        id="annual_revenue" type="text" name="annual_revenue"
-                        placeholder="Enter Annual Revenue" :inputData="$record->annual_revenue"  />
-                    </div>
 
+                    <div class="col-md-6">
+                        <x-inputField label='subject' labelCaption="Subject*"
+                        id="subject" type="text" name="subject"
+                        placeholder="Enter Subject" :inputData="$record->subject"  />
+                    </div>
+                    <div class="col-md-6">
+                        <x-inputField label='date_time' labelCaption="Date Time"
+                        id="date_time" type="datetime-local" name="date_time"
+                        placeholder="Enter Date Time" :inputData="$record->date_time" />
+                    </div>
                 </div>
 
 
                 <div class="row">
 
                     <div class="col-md-6">
+                        <label for="name">Description:</label>
                         <x-textareaField label='description'  class="form-control" labelCaption="Description"
                         placeholder="Enter Description" name="description" id="description" :inputData="$record->description" />
                     </div>
-
-                    <div class="col-md-6">
-                        <x-inputField label='expected_close_date' labelCaption="Expected Close Date*"
-                        id="expected_close_date" type="date" name="expected_close_date"
-                        placeholder="" :inputData="$record->expected_close_date"  />
-                    </div>
-                </div>
-
-
-                <div class="row">
-
                     <div class="col-md-6">
                         <x-selectField label='focus' className="eventClass" labelCaption="Status*"
                         name="status" defaultOption="Select Status" :options="$data['status_options']" />
                     </div>
+
                 </div>
+
 
                 <input type="hidden" name="id" value="" />
 

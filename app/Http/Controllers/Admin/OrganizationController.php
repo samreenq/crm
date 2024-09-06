@@ -108,4 +108,40 @@ class OrganizationController extends Controller
             'record'=> $record
         ]);
     }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        try{
+            $validator = Validator::make($request->all(),
+            [
+                'name' => 'required|string|max:100',
+                'email' => 'required|email|unique:users|max:100',
+                'phone' => 'required|max:100',
+                'no_of_employees' => 'required|integer',
+                'annual_revenue' => 'required',
+                'address' => 'required',
+                'status' => 'required'
+            ]);
+
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
+
+              //Save data in model
+            $data =  $this->_model->updateRecord($request->all(),$id);
+            if($data)
+            return redirect('admin/organization')->with('success','Organization has been added successfully');
+        }
+        catch(Exception $e){
+            return redirect()->back()->with('error',$e->getMessage());
+        }
+
+    }
 }

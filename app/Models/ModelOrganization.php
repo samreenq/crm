@@ -68,4 +68,25 @@ class ModelOrganization extends Model
         $record =  $this->where('id',$id)->first();
         return $record;
     }
+
+     /**
+     * Update Record
+     */
+    public function updateRecord($data,$id)
+    {
+        $updateRecord = self::where('id',$id)->update([
+            'name' => $data['name'],
+           'type' => $data['type'],
+           'email' => $data['email'],
+           'phone' => $data['phone'],
+            'description' => $data['description'],
+            'no_of_employees' => $data['no_of_employees'],
+            'annual_revenue' => $data['annual_revenue'],
+            'address' => $data['address'],
+            'profile_link' => $data['profile_link'],
+            'status' => $data['status']
+        ]);
+
+        return $updateRecord;
+    }
 }

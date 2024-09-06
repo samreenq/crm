@@ -141,6 +141,29 @@ class ActivitiesController extends Controller
     public function update(Request $request, $id)
     {
         //
+        try{
+            $validator = Validator::make($request->all(),
+            [
+                'title' => 'required|string|max:100|unique:activities,title,'.$id,
+                'type' => 'required',
+                'contact_id'        => 'required',
+                'organization_id'   => 'required',
+                'subject' => 'required|string',
+                'status' => 'required'
+            ]);
+
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
+              //Save data in model
+            $data =  $this->_model->updateRecord($request->all(),$id);
+            if($data)
+            return redirect('admin/activities')->with('success','Activity has been updated successfully');
+        }
+        catch(Exception $e){
+            return redirect()->back()->with('error',$e->getMessage());
+        }
+
     }
 
     /**

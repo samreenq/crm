@@ -66,4 +66,23 @@ class ModelActivities extends Model
         return $record;
     }
 
+    /**
+     * Update Record
+     */
+    public function updateRecord($data,$id)
+    {
+        $updateRecord = self::where('id',$id)->update([
+            'title' => $data['title'],
+           'type' => $data['type'],
+           'contact_id' => $data['contact_id'],
+           'organization_id' => $data['organization_id'],
+            'date_time' => date('Y-m-d h:i:s',strtotime($data['date_time'])),
+            'subject' => $data['subject'],
+            'description' => $data['description'],
+            'status' => $data['status']
+        ]);
+        // echo '<pre>'; print_r($updateRecord); exit;
+        return $updateRecord;
+    }
+
 }

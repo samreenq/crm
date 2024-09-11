@@ -72,7 +72,6 @@
                 <div class="row">
 
                     <div class="col-md-6">
-                        <label for="name">Description:</label>
                         <x-textareaField label='description'  class="form-control" labelCaption="Description"
                         placeholder="Enter Description" name="description" id="description" />
                     </div>

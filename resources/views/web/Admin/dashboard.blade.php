@@ -172,7 +172,7 @@
         </div>
 
         <!-- Pie Chart -->
-        <div class="row">
+        <div class="row" style="display: none">
             <div class="col-md-6 offset-md-3">
                 <div class="card mb-4">
                     <div class="card-header">

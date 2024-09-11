@@ -1,5 +1,5 @@
 <footer class="footer">
-	© 2023 Grace Karns -  <i class="mdi mdi-heart text-danger"></i> by Galaxy Web.
+	© {{  date('Y') }} YAZZ TECH INC -  <i class="mdi mdi-heart text-danger"></i> by Galaxy Web.
 </footer>
 
 <script src="{{URL::asset('admin-panel/assets/js/jquery.min.js')}}"></script>
@@ -19,12 +19,12 @@
         <!-- App js -->
         <script src="{{URL::asset('admin-panel/assets/js/app.js')}}"></script>
         <script src="{{URL::asset('admin-panel/assets/pages/animate-init.js')}}"></script>
-    
+
 
         <script src="{{URL::asset('admin-panel/assets/plugins/RWD-Table-Patterns/dist/js/rwd-table.min.js')}}"></script>
 
         <script src="{{URL::asset('admin-panel/assets/plugins/sweet-alert2/sweetalert2.min.js')}}"></script>
-       
+
         <script src="{{URL::asset('admin-panel/assets/js/toastr.min.js')}}"></script>
         <script src="{{URL::asset('admin-panel/assets/js/custom.js')}}"></script>
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

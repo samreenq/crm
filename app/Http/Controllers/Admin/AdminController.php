@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ModelContacts;
+use App\Models\ModelLead;
+use App\Models\ModelUsers;
 use Illuminate\Http\Request;
 use App\Repositories\Interfaces\UsersRepositoriesInterface;
 use Illuminate\Support\Facades\Validator;
@@ -61,11 +64,25 @@ class AdminController extends Controller
                 return redirect('admin/homepage');
         }
     }
-
+/**
+ * Dashboard
+ */
     public function homepage()
     {
         $pageTitle = "Dashboard";
-        return view('web.Admin.dashboard')->with("pageTitle", $pageTitle);
+
+        $user_model = new ModelUsers();
+       $data['total_user'] = $user_model->getTotalRecords();
+
+        $contacts_model = new ModelContacts();
+        $data['total_contacts'] = $contacts_model->getTotalRecords();
+
+        $lead_model = new ModelLead();
+        $data['total_leads'] = $lead_model->getTotalRecords();
+        $data['leads_amount'] = $lead_model->getTotalSum();
+
+        return view('web.Admin.dashboard')->with("pageTitle", $pageTitle)
+        ->with('data',$data);
     }
 
     public function viewCompanies()

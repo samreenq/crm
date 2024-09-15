@@ -11,7 +11,7 @@ class ModelContacts extends Model
     use HasFactory, SoftDeletes;
     protected $table="contacts";
     protected $primaryKey="id";
-    
+
     protected $fillable = [
         'name','user_id','organization_id','gender','date_of_birth','address','country_id','city_id','state_id','zipcode','status',
         'created_at','updated_at','deleted_at'
@@ -85,5 +85,13 @@ class ModelContacts extends Model
         ]);
         //echo '<pre>'; print_r($createRecord); exit;
         return $createRecord;
+    }
+
+    /**
+     * Total Reocrds
+     */
+    public function getTotalRecords()
+    {
+      return $this->where('status','active')->count();
     }
 }

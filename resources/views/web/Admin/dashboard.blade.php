@@ -14,7 +14,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <h5 class="card-title">Users</h5>
-                                <h2 class="card-text">1500</h2>
+                                <h2 class="card-text">{{ $data['total_user'] }}</h2>
                             </div>
                             <div class="icon">
                                 <i class="bi bi-people-fill" style="font-size: 2rem;"></i>
@@ -30,7 +30,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <h5 class="card-title">Contacts</h5>
-                                <h2 class="card-text">250</h2>
+                                <h2 class="card-text">{{ $data['total_contacts'] }}</h2>
                             </div>
                             <div class="icon">
                                 <i class="bi bi-people-fill" style="font-size: 2rem;"></i>
@@ -46,7 +46,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <h5 class="card-title">Leads</h5>
-                                <h2 class="card-text">567</h2>
+                                <h2 class="card-text">{{ $data['total_leads'] }}</h2>
                             </div>
                             <div class="icon">
                                 <i class="bi bi-basket-fill" style="font-size: 2rem;"></i>
@@ -62,7 +62,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <h5 class="card-title">Revenue</h5>
-                                <h2 class="card-text">$12,345</h2>
+                                <h2 class="card-text">${{ $data['leads_amount'] }}</h2>
                             </div>
                             <div class="icon">
                                 <i class="bi bi-currency-dollar" style="font-size: 2rem;"></i>

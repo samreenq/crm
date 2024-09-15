@@ -84,4 +84,12 @@ class ModelUsers extends Model
          return true;
 
     }
+
+    /**
+     * Total Records
+     */
+    public function getTotalRecords()
+    {
+      return $this->where('status','active')->count();
+    }
 }

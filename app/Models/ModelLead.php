@@ -19,7 +19,7 @@ class ModelLead extends Model
     use SoftDeletes;
 
     protected $fillable = [
-         'name', 'description', 'annual_revenue', 'source', 'type', 'contact_id', 'organization_id', 
+         'name', 'description', 'annual_revenue', 'source', 'type', 'contact_id', 'organization_id',
          'expected_close_date','status' , 'created_at','updated_at','deleted_at'
     ];
 
@@ -85,5 +85,21 @@ class ModelLead extends Model
         ]);
         // echo '<pre>'; print_r($updateRecord); exit;
         return $updateRecord;
+    }
+
+    /**
+     * Total Records
+     */
+    public function getTotalRecords()
+    {
+      return $this->where('status','active')->count();
+    }
+
+    /**
+     * Total Records
+     */
+    public function getTotalSum()
+    {
+      return $this->where('status','active')->sum('annual_revenue');
     }
 }

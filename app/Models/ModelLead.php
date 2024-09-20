@@ -20,7 +20,7 @@ class ModelLead extends Model
 
     protected $fillable = [
          'name', 'description', 'annual_revenue', 'source', 'type', 'contact_id', 'organization_id',
-         'expected_close_date','status' , 'created_at','updated_at','deleted_at'
+         'expected_close_date','lead_status','status' , 'created_at','updated_at','deleted_at'
     ];
 
     public function list()
@@ -104,5 +104,18 @@ class ModelLead extends Model
     public function getTotalSum()
     {
       return $this->where('status','active')->sum('annual_revenue');
+    }
+
+    /**
+     * Get Status Percentage
+     */
+
+    public function getStatusPercent($status)
+    {
+        $status_count = $this->where('status','active')->where('lead_status',$status)->count();
+        $total_count = $this->where('status','active')->count();
+
+        $percent = ($status_count/$total_count)*100;
+        return $percent;
     }
 }

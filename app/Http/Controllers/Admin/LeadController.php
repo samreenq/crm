@@ -94,7 +94,7 @@ class LeadController extends Controller
             // Retrieve the validated input...
             $validated = $validator->validated();
 
-             //echo '<pre>'; print_r($validated); exit;
+            // echo '<pre>'; print_r($request->all()); exit;
             $addRecord = ModelLead::addLeads($request->all());
 
             //echo '<pre>'; print_r($addRecord); exit;

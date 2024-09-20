@@ -79,7 +79,17 @@ class AdminController extends Controller
 
         $lead_model = new ModelLead();
         $data['total_leads'] = $lead_model->getTotalRecords();
-        $data['leads_amount'] = $lead_model->getTotalSum();
+        $leads_amount = $lead_model->getTotalSum();
+        $data['leads_amount'] = number_format($leads_amount,2);
+
+        $leads_pending = $lead_model->getStatusPercent('pending');
+        $data['leads_pending'] = round($leads_pending);
+
+        $leads_inprogress = $lead_model->getStatusPercent('inprogress');
+        $data['leads_inprogress'] = round($leads_inprogress);
+
+        $leads_completed = $lead_model->getStatusPercent('completed');
+        $data['leads_completed'] = round($leads_completed);
 
         return view('web.Admin.dashboard')->with("pageTitle", $pageTitle)
         ->with('data',$data);

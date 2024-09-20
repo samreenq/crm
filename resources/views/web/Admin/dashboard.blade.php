@@ -86,59 +86,89 @@
             </div>
             <div class="row">
 
+                @if($data['leads_pending'] >= 50 && $data['leads_pending'] <= 75)
+                @php $priority_badge = 'warning'; @endphp
+                    @elseif($data['leads_pending'] >= 75 && $data['leads_pending'] <= 100)
+                    @php   $priority_badge = 'success';  @endphp
+                    @elseif($data['leads_pending'] >= 10 && $data['leads_pending'] <= 50)
+                        @php $priority_badge = 'info';  @endphp
+                        @else
+                        @php $priority_badge = 'muted';  @endphp
+                        @endif
+
                 <div class="col-md-4">
-                    <div class="card text-white bg-muted mb-3">
+                    <div class="card text-white bg-{{ $priority_badge }} mb-3">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h5 class="card-title">Pending</h5>
-                                    <h2 class="card-text">20%</h2>
+                                    <h2 class="card-text">{{ $data['leads_pending'] }}%</h2>
                                 </div>
                                 <div class="icon">
                                     <i class="bi bi-hourglass-split" style="font-size: 2rem;"></i>
                                 </div>
                             </div>
                             <div class="progress mt-3">
-                                <div class="progress-bar bg-dark" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">20%</div>
+                                <div class="progress-bar bg-dark" role="progressbar" style="width: {{ $data['leads_pending'] }}%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">{{ $data['leads_pending'] }}%</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                @if($data['leads_inprogress'] >= 50 && $data['leads_inprogress'] <= 75)
+                    @php $priority_badge = 'warning'; @endphp
+                        @elseif($data['leads_inprogress'] >= 75 && $data['leads_inprogress'] <= 100)
+                            @php   $priority_badge = 'success';  @endphp
+                    @elseif($data['leads_inprogress'] >= 10 && $data['leads_inprogress'] <= 50)
+                        @php $priority_badge = 'info';  @endphp
+                        @else
+                            @php $priority_badge = 'muted';  @endphp
+                        @endif
+
                 <!-- In Progress Status Widget -->
                 <div class="col-md-4">
-                    <div class="card text-white bg-warning mb-3">
+                    <div class="card text-white bg-{{ $priority_badge }} mb-3">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h5 class="card-title">In Progress</h5>
-                                    <h2 class="card-text">45%</h2>
+                                    <h2 class="card-text">{{ $data['leads_inprogress'] }}%</h2>
                                 </div>
                                 <div class="icon">
                                     <i class="bi bi-hourglass-split" style="font-size: 2rem;"></i>
                                 </div>
                             </div>
                             <div class="progress mt-3">
-                                <div class="progress-bar bg-dark" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">45%</div>
+                                <div class="progress-bar bg-dark" role="progressbar" style="width: {{ $data['leads_inprogress'] }}%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">{{ $data['leads_inprogress'] }}%</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Completed Status Widget -->
+                @if($data['leads_completed'] >= 50 && $data['leads_completed'] <= 75)
+                    @php $priority_badge = 'warning'; @endphp
+                        @elseif($data['leads_completed'] >= 75 && $data['leads_completed'] <= 100)
+                            @php   $priority_badge = 'success';  @endphp
+                    @elseif($data['leads_completed'] >= 10 && $data['leads_completed'] <= 50)
+                        @php $priority_badge = 'info';  @endphp
+                        @else
+                            @php $priority_badge = 'muted';  @endphp
+                        @endif
+
                 <div class="col-md-4">
-                    <div class="card text-white bg-success mb-3">
+                    <div class="card text-white bg-{{ $priority_badge }} mb-3">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h5 class="card-title">Completed</h5>
-                                    <h2 class="card-text">80%</h2>
+                                    <h2 class="card-text">{{ $data['leads_completed'] }}%</h2>
                                 </div>
                                 <div class="icon">
                                     <i class="bi bi-check-circle-fill" style="font-size: 2rem;"></i>
                                 </div>
                             </div>
                             <div class="progress mt-3">
-                                <div class="progress-bar bg-dark" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+                                <div class="progress-bar bg-dark" role="progressbar" style="width: {{ $data['leads_completed'] }}%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">{{ $data['leads_completed'] }}%</div>
                             </div>
                         </div>
                     </div>

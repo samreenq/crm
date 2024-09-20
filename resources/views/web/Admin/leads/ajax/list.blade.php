@@ -38,7 +38,14 @@
                     <td>{{ $value['type'] }}</td>
                     <td><span class="badge-primary">{{ $value['source'] }}</span></td>
                     <td>{{ $value['expected_close_date'] }}</td>
-                    <td><span class="badge-info">{{ $value['lead_status'] }}</span></td>
+                    @if($value['lead_status'] == 'completed')
+                    @php $priority_badge = 'success'; @endphp
+                        @elseif($value['lead_status'] == 'inprogress')
+                        @php   $priority_badge = 'warning';  @endphp
+                            @else
+                            @php $priority_badge = 'info';  @endphp
+                            @endif
+                    <td><span class="badge-{{ $priority_badge }}">{{ $value['lead_status'] }}</span></td>
                     <td><span class="badge-success">{{ $value['status'] }}</span></td>
                     <td>
                         <a href="{{ url('admin/leads/edit/'.$value['id']) }}"  data-id="{{ $value['id'] }}"

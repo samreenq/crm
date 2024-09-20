@@ -87,6 +87,11 @@
                 <div class="row">
 
                     <div class="col-md-6">
+                        <x-selectField label='focus' className="eventClass" labelCaption="Lead Status*"
+                        name="lead_status" defaultOption="Select Lead Status" :options="$data['lead_status_options']" />
+                    </div>
+
+                    <div class="col-md-6">
                         <x-selectField label='focus' className="eventClass" labelCaption="Status*"
                         name="status" defaultOption="Select Status" :options="$data['status_options']" />
                     </div>

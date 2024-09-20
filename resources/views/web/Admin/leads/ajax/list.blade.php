@@ -17,6 +17,7 @@
             <th style="max-width:100px">Type</th>
             <th style="max-width:100px">Source</th>
             <th style="max-width:100px">Expected Close Date</th>
+            <th style="max-width:100px">Progress</th>
             <th style="max-width:100px">Status</th>
             <th style="max-width:100px">Action</th>
 
@@ -37,6 +38,7 @@
                     <td>{{ $value['type'] }}</td>
                     <td><span class="badge-primary">{{ $value['source'] }}</span></td>
                     <td>{{ $value['expected_close_date'] }}</td>
+                    <td><span class="badge-info">{{ $value['lead_status'] }}</span></td>
                     <td><span class="badge-success">{{ $value['status'] }}</span></td>
                     <td>
                         <a href="{{ url('admin/leads/edit/'.$value['id']) }}"  data-id="{{ $value['id'] }}"

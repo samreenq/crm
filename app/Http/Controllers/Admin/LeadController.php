@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ModelContacts;
 use App\Models\ModelLead;
 use App\Models\ModelOrganization;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -57,6 +58,7 @@ class LeadController extends Controller
         $data['organization_options']['options'] = ModelOrganization::dropdownList();
         $data['source_options']['options'] = leadSourceDropdown();
         $data['type_options']['options'] = leadTypeDropdown();
+        $data['lead_status_options']['options'] = leadStatusDropdown();
 
         return view("web.Admin.$this->_module.add")->with("pageTitle", $pageTitle)
         ->with('data',$data);
@@ -81,6 +83,7 @@ class LeadController extends Controller
                 'contact_id'        => 'required',
                 'organization_id'   => 'required',
                 'expected_close_date'=> 'required|date',
+                'lead_status'       =>  'required',
                 'status'            => 'required|in:"active","inactive"',
             ]);
             if ($validator->fails()) {
@@ -90,12 +93,12 @@ class LeadController extends Controller
             }
             // Retrieve the validated input...
             $validated = $validator->validated();
-     
+
              //echo '<pre>'; print_r($validated); exit;
             $addRecord = ModelLead::addLeads($request->all());
 
             //echo '<pre>'; print_r($addRecord); exit;
-        
+
             //return redirect
             return redirect('admin/leads')->with('success','Contact has been Added Successfully');
         }
@@ -131,6 +134,7 @@ class LeadController extends Controller
          $data['organization_options']['options'] = ModelOrganization::dropdownList();
          $data['source_options']['options'] = leadSourceDropdown();
          $data['type_options']['options'] = leadTypeDropdown();
+         $data['lead_status_options']['options'] = leadStatusDropdown();
 
         //Get User data by id
         $record = $this->_model->getById($id);
@@ -154,12 +158,12 @@ class LeadController extends Controller
                 'name'              => 'required|max:255',
                 'description'       => 'required',
                 'annual_revenue'    => 'required',
-                // 'annual_revenue'    => 'required|decimal:15,2',
                 'source'            => 'required|in:"email","phone","contact_form","direct"',
                 'type'              => 'required|in:"new_business","existing_business"',
                 'contact_id'        => 'required',
                 'organization_id'   => 'required',
                 'expected_close_date'=> 'required|date',
+                'lead_status'       =>  'required',
                 'status'            => 'required|in:"active","inactive"',
             ]);
             if ($validator->fails()) {
@@ -169,12 +173,12 @@ class LeadController extends Controller
             }
             // Retrieve the validated input...
             $validated = $validator->validated();
-     
+
              //echo '<pre>'; print_r($validated); exit;
             $updateRecord = ModelLead::updateRecord($request->all(),$id);
 
             // echo '<pre>'; print_r($updateRecord ); exit;
-        
+
             // return redirect
             return redirect('admin/leads')->with('success','Leads has been Updated Successfully');
         }

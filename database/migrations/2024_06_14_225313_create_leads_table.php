@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreignId('contact_id')->nullable();
             $table->foreignId('organization_id')->nullable();
             $table->date('expected_close_date')->nullable();
+            $table->enum('lead_status',['pending','inprogress','completed'])->default('pending');
             $table->enum('status',['active','inactive'])->default('active');
             $table->timestamps();
             $table->softDeletes($column = 'deleted_at', $precision = 0);

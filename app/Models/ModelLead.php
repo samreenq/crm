@@ -65,6 +65,8 @@ class ModelLead extends Model
             'contact_id'         =>  $data['contact_id'],
             'organization_id'    =>  $data['organization_id'],
             'expected_close_date'=>  $data['expected_close_date'],
+            'expected_close_date'=>  $data['expected_close_date'],
+            'lead_status'        =>  $data['lead_status'],
             'status'             =>  $data['status']
         ]);
         return $createRecord;
@@ -81,6 +83,7 @@ class ModelLead extends Model
             'contact_id'         =>  $data['contact_id'],
             'organization_id'    =>  $data['organization_id'],
             'expected_close_date'=>  $data['expected_close_date'],
+            'lead_status'        =>  $data['lead_status'],
             'status'             =>  $data['status']
         ]);
         // echo '<pre>'; print_r($updateRecord); exit;

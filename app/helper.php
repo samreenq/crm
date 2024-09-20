@@ -215,4 +215,19 @@ if(!function_exists('cD'))
         }
     }
 
+    if(!function_exists('leadStatusDropdown'))
+    {
+        /**
+         * Status Dropdown values
+         */
+        function leadStatusDropdown()
+        {
+           return array(
+            'pending' => 'Pending',
+            'inprogress' => 'In Progress',
+            'completed' => 'Completed',
+            );
+        }
+    }
+
 ?>

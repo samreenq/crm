@@ -31,6 +31,8 @@
                 $data['organization_options']['userSelectedOption']['Key']= $record->organization_id;
                 $data['status_options']['userSelectedOption']['Key']= $record->status;
                 $data['source_options']['userSelectedOption']['Key']= $record->source;
+                $data['lead_status_options']['userSelectedOption']['Key']= $record->lead_status;
+
 
                 $expected_close_date = date('m/d/Y',strtotime($record->expected_close_date));
             @endphp
@@ -94,6 +96,11 @@
 
 
                 <div class="row">
+
+                    <div class="col-md-6">
+                        <x-selectField label='focus' className="eventClass" labelCaption="Lead Status*"
+                        name="lead_status" defaultOption="Select Lead Status" :options="$data['lead_status_options']" />
+                    </div>
 
                     <div class="col-md-6">
                         <x-selectField label='focus' className="eventClass" labelCaption="Status*"

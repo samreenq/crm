@@ -15,7 +15,6 @@
             <th>User Name</th>
             <th style="max-width:100px">Organization</th>
             <th style="max-width:100px">Gender</th>
-            <th style="max-width:100px">Address</th>
             <th style="max-width:100px">Status</th>
             <th style="max-width:100px">Action</th>
 
@@ -34,7 +33,6 @@
                     <td>{{ $value['user']['name'] }}</td>
                     <td>{{ $value['organization']['name'] }}</td>
                     <td>{{ $value['gender'] }}</td>
-                    <td><span>{{ $value['address'] }}</span></td>
                     <td><span class="badge-success">{{ $value['status'] }}</span></td>
                     <td>
                         <a href="{{ url('admin/contacts/edit/'.$value['id']) }}"  data-id="{{ $value['id'] }}"

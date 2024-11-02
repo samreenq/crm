@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\sendEmail;
 use App\Models\ModelActivities;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\ModelContacts;
 use App\Models\ModelOrganization;
 use Exception;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class ActivitiesController extends Controller
@@ -71,6 +73,7 @@ class ActivitiesController extends Controller
     {
         //
         try{
+
             $validator = Validator::make($request->all(),
             [
                 'title' => 'required|unique:activities|string|max:100',
@@ -85,8 +88,16 @@ class ActivitiesController extends Controller
                 return redirect()->back()->withErrors($validator)->withInput();
             }
 
+
               //Save data in model
             $data =  $this->_model->createRecord($request->all());
+
+           /* if($request->type == 'email'){
+                Mail::to('demo@mail.com')->send(new sendEmail([
+                    'name' => 'Demo',
+                ]));
+            }*/
+
             if($data)
             return redirect('admin/activities')->with('success','Activity has been added successfully');
         }

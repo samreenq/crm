@@ -33,6 +33,8 @@
             $data['organization_options']['userSelectedOption']['Key']= $record->organization_id;
             $data['status_options']['userSelectedOption']['Key']= $record->status;
             $data['gender_options']['userSelectedOption']['Key']= $record->gender;
+            $data['state_options']['userSelectedOption']['Key']= $record->state_id;
+            $data['city_options']['userSelectedOption']['Key']= $record->city_id;
            ?>
 
             <form id="edit-company-form-by-admin" name="data_form" method="post" action="{{ route('admin.contacts.update',$record->id) }}">
@@ -81,7 +83,7 @@
 
                     <div class="col-md-6">
                         <x-selectField label='focus' className="eventClass" labelCaption="State"
-                        name="state_id"  id="state_id" defaultOption="Select state" :options="array()" />
+                        name="state_id"  id="state_id" defaultOption="Select state" :options="$data['state_options']" />
                     </div>
                 </div>
 
@@ -89,7 +91,7 @@
 
                     <div class="col-md-6">
                         <x-selectField label='focus' className="eventClass" labelCaption="City*"
-                        name="city_id" id="city_id" defaultOption="Select city" :options="array()" />
+                        name="city_id" id="city_id" defaultOption="Select city" :options="$data['city_options']" />
                     </div>
 
                     <div class="col-md-6">

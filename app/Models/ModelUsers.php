@@ -92,4 +92,10 @@ class ModelUsers extends Model
     {
       return $this->where('status','active')->count();
     }
+
+    public function deleteRecord($id)
+    {
+       $result = $this->where('id',$id)->delete();
+       return $result;
+    }
 }

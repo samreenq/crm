@@ -36,7 +36,7 @@
                     <td>
                         <a href="{{ url('admin/users/edit/'.$value['id']) }}" data-id="{{ $value['id'] }}"
                             class="btn btn-primary"><i class="ti-pencil-alt"></i></a>
-                        <a href="" id="delete-company-admin" data-id="{{ $value['id'] }}"
+                        <a href="" id="delete-admin-module-row" data-name="user" data-id="{{ $value['id'] }}"
                             class="btn btn-danger"><i class="ti-trash"></i></a>
                     </td>
                 </tr>

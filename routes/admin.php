@@ -54,7 +54,7 @@ Route::group(['middleware'=>['AdminAuth']],function(){
   Route::post('users/store', [UserController::class,'store'])->name('admin.users.store');
   Route::get('users/edit/{id}', [UserController::class,'edit'])->name('admin.users.edit');
   Route::post('users/update/{id}', [UserController::class,'update'])->name('admin.users.update');
-
+  Route::get('users/delete', [UserController::class,'delete'])->name('admin.users.delete');
 
   //Organization
   Route::get('organization', [OrganizationController::class,'list'])->name('admin.organization');

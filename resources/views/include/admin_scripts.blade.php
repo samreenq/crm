@@ -1241,8 +1241,9 @@
     $(document).on('click', '#delete-company-admin', function(event) {
         event.preventDefault();
         var dataId = $(this).attr("data-id");
+            // alert(dataId);
         swal({
-            title: 'Are You Sure?',
+            title:  'Are You Sure?',
             text: "You want to delete it, You won't be able to revert it!",
             type: 'warning',
             showCancelButton: true,
@@ -1254,7 +1255,7 @@
             $.ajax({
                 url: dataUrl + "?id=" + dataId,
                 success: function(data) {
-
+                    //alert(data);
                     var result = JSON.parse(data);
                     if (result['code'] == '302') {
                         jsonMessage('error', 'Required Field cannot be left empty')

@@ -63,7 +63,7 @@ Route::group(['middleware'=>['AdminAuth']],function(){
   Route::post('organization/store', [OrganizationController::class,'store'])->name('admin.organization.store');
   Route::get('organization/edit/{id}', [OrganizationController::class,'edit'])->name('admin.organization.edit');
   Route::post('organization/update/{id}', [OrganizationController::class,'update'])->name('admin.organization.update');
-
+  Route::get('organization/delete',[OrganizationController::class,'delete'])->name('admin.organization.delete');
 
   //Contacts
   Route::get('contacts', [ContactController::class,'index'])->name('admin.contacts');

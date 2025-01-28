@@ -8,12 +8,13 @@ Class CustomLib {
      * Getting country List
      */
     public static function countryList()
-    {
+    {   
         $country_list = array();
         $world_countries =  World::countries();
-
+        //echo '<pre>'; print_r($world_countries->data); exit;
         if ($world_countries->success) {
             $countries = $world_countries->data;
+            //echo '<pre>'; print_r($countries); exit;
             $countries = json_decode($countries,true);
 
             if(count($countries) > 0){

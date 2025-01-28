@@ -14,7 +14,6 @@ return new class extends Migration
     public function up()
     {
         Schema::create('contacts', function (Blueprint $table) {
-            //
             $table->id();
             $table->string('name',100)->nullable();
             $table->foreignId('user_id')->nullable();
@@ -22,9 +21,9 @@ return new class extends Migration
             $table->enum('gender',['male','female'])->default('male');
             $table->date('date_of_birth')->nullable();
             $table->text('address')->nullable();
-            $table->int('country_id')->nullable();
-            $table->int('city_id')->nullable();
-            $table->int('state_id')->nullable();
+            $table->integer('country_id')->nullable();
+            $table->integer('city_id')->nullable();
+            $table->integer('state_id')->nullable();
             $table->string('zipcode',100)->nullable();
             $table->enum('status',['active','inactive'])->default('active');
             $table->timestamps();

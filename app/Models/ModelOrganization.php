@@ -89,4 +89,10 @@ class ModelOrganization extends Model
 
         return $updateRecord;
     }
+
+    public function deleteRecord($id)
+    {
+        $deleteRecored = $this->where('id',$id)->delete();
+        return $deleteRecored;
+    }
 }

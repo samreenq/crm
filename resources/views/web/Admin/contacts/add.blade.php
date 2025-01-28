@@ -130,7 +130,7 @@
 
             $('#country_id').change(function(){
                 var cid = $(this).val();
-                //alert(cid)
+               // alert(cid)
                 $.ajax({
                     url:"{{route('admin.contacts.getstates')}}",
                     type: 'POST',

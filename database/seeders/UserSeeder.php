@@ -39,7 +39,7 @@ class UserSeeder extends Seeder
             $user->phone = "030013447788";
             $user->password = Hash::make(123456);
             $user->status = 'active';
-            $user->role = 'user';
+            $user->role = 'customer';
             $user->user_type = 2;
             $user->save();
         }

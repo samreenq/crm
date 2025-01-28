@@ -76,6 +76,9 @@
         if($.trim(moduleName) == "user"){
             var dataUrl = deleteUserUrl(dataId);
         }
+        if(moduleName == "organization"){
+            var dataUrl = deleteOrganizationUrl(dataId);
+        }
         swal({
             title:  'Are You Sure?',
             text: "You want to delete it, You won't be able to revert it!",
@@ -114,6 +117,12 @@ function deleteUserUrl(id)
 {
     var deleteUrl  = "{{ route('admin.users.delete') }}";
     var delete_url =  deleteUrl + "?id=" + id;
+    return delete_url;
+}
+
+function deleteOrganizationUrl(id){
+    var deleteUrl = "{{ route('admin.organization.delete') }}";
+    var delete_url = deleteUrl + "?id=" + id;
     return delete_url;
 }
 </script>

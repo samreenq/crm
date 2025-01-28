@@ -55,7 +55,7 @@ class ContactController extends Controller
      */
     public function create(Request $request)
     {
-        //
+        //echo '<pre>'; print_r($request->all()); exit;
         $pageTitle = "Add ".$this->_module;
         $data['status_options']['options'] = statusDropdown();
         $data['gender_options']['options'] = genderDropdown();

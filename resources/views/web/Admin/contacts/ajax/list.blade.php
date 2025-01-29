@@ -27,7 +27,6 @@
 
     <tbody>
         @if (!empty($data))
-        <!-- yaha pr condition lagy gi ternary opreator ki -->
             <?php $serial = 1; ?>
             @foreach ($data as $value)
                 <tr>

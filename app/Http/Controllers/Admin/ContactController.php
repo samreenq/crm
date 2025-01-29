@@ -164,9 +164,16 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete(Request $request)
     {
-        //
+        $id = $request->id;
+        if (empty($id))
+            return $this->code300("contacts doesnot exists");
+        $delete = $this->_model->deleteRecord($id);
+        if($delete)
+            return $this->Code200("Contacts is Successfully Deleted", 'Delete Contacts');
+        else
+            return $this->code300("Something went wrong, Please Try Again ");
     }
 
     /**

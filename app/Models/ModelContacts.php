@@ -94,4 +94,10 @@ class ModelContacts extends Model
     {
       return $this->where('status','active')->count();
     }
+
+    public function deleteRecord($id)
+    {
+        $deleteRecored = $this->where('id',$id)->delete();
+        return $deleteRecored;
+    }
 }

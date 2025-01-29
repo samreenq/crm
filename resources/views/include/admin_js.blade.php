@@ -79,6 +79,10 @@
         if(moduleName == "organization"){
             var dataUrl = deleteOrganizationUrl(dataId);
         }
+        if(moduleName == "contacts"){
+            var dataUrl = deleteContactsUrl(dataId);
+            //alert(dataUrl);
+        }
         swal({
             title:  'Are You Sure?',
             text: "You want to delete it, You won't be able to revert it!",
@@ -92,7 +96,7 @@
             $.ajax({
                 url: dataUrl,
                 success: function(data) {
-                  //  alert(data);
+                   //alert(data);
                     var result = JSON.parse(data);
                     if (result['code'] == '302') {
                         jsonMessage('error', 'Required Field cannot be left empty')
@@ -122,6 +126,12 @@ function deleteUserUrl(id)
 
 function deleteOrganizationUrl(id){
     var deleteUrl = "{{ route('admin.organization.delete') }}";
+    var delete_url = deleteUrl + "?id=" + id;
+    return delete_url;
+}
+
+function deleteContactsUrl(id){
+    var deleteUrl = "{{ route('admin.contacts.delete') }}";
     var delete_url = deleteUrl + "?id=" + id;
     return delete_url;
 }

@@ -1,3 +1,6 @@
+<?php
+ echo '<pre>'; print_r($data); exit;
+    ?>
 <div class="col-md-12 text-center mb-3 mt-3" style="width:100%; background-color:#1967a9;color:white;padding:5px;">
     <h3>Manage Contacts</h3>
 
@@ -24,7 +27,7 @@
 
     <tbody>
         @if (!empty($data))
-
+        <!-- yaha pr condition lagy gi ternary opreator ki -->
             <?php $serial = 1; ?>
             @foreach ($data as $value)
                 <tr>
@@ -37,7 +40,7 @@
                     <td>
                         <a href="{{ url('admin/contacts/edit/'.$value['id']) }}"  data-id="{{ $value['id'] }}"
                             class="btn btn-primary"><i class="ti-pencil-alt"></i></a>
-                        <a href="" id="delete-company-admin" data-id="{{ $value['id'] }}"
+                        <a href="" id="delete-admin-module-row" data-name="contacts" data-id="{{ $value['id'] }}"
                             class="btn btn-danger"><i class="ti-trash"></i></a>
                     </td>
                 </tr>
